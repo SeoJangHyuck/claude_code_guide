@@ -21,5 +21,8 @@ setup_demo.sh
 # Claude Code 로컬 설정
 .claude/
 
+# 로컬 작업본 (setup_demo.sh가 참조, GitHub Pages는 루트 index.html 사용)
+presentation/
+
 # macOS
 .DS_Store
