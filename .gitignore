@@ -1,0 +1,25 @@
+# 실데이터 / 대용량
+busan_data/
+reports/
+demo_assets/
+
+# 개인 파일
+*.xlsx
+*.pdf
+*.plugin
+profile.md
+plugin-install-guide.html
+
+# 내부 기획 문서
+chapter4_재설계_2026-05-18.md
+발표작성_plan.md
+발표설계.md
+기획안.md
+발표당일_체크리스트.md
+setup_demo.sh
+
+# Claude Code 로컬 설정
+.claude/
+
+# macOS
+.DS_Store
