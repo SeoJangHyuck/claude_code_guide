@@ -46,7 +46,7 @@
 
 ## 슬라이드 7-2 — 1단계: 플러그인 zip 공유 (1분 30초, git 불필요)
 
-**핵심 메시지**: "여러 자산을 zip 한 개로 묶어 메신저·드라이브로. 동료는 한 줄 명령으로 받음."
+**핵심 메시지**: "플러그인 = `.claude-plugin/plugin.json` 가진 디렉토리. 만들고 → 로컬 테스트 → zip → 메신저."
 
 **본문 콘텐츠**:
 
@@ -55,22 +55,41 @@
 
   ───────────────────────────────────────────
 
-  여러 자산(skill·rules·agent·hook)을 한 묶음으로
+  ① 플러그인 디렉토리 구조 (이름·위치 자유)
 
-  ① .claude/.claude-plugin/plugin.json 추가:
+  my-plugin/                          ← 플러그인 루트
+    ├── .claude-plugin/
+    │   └── plugin.json               ← 필수 매니페스트
+    ├── skills/<이름>/SKILL.md
+    ├── agents/<이름>.md
+    └── hooks/hooks.json              ← 선택
 
-  {
-    "name": "research-team-plugin",
-    "version": "1.0.0",
-    "description": "정책 연구원 업무 자동화 묶음",
-    "author": { "name": "BDI 데이터팀" }
-  }
-
-  ② 플러그인 폴더 zip 압축 → 메신저·드라이브로 전달
+  ⚠️ 흔한 실수: skills·agents·hooks를 .claude-plugin/
+     안에 넣지 말 것. plugin.json '옆'에 같은 레벨로.
 
   ───────────────────────────────────────────
 
-  동료의 설치 (한 줄씩):
+  ② plugin.json (4필드면 충분)
+
+  {
+    "name": "research-team-plugin",       ← 호출 prefix
+    "description": "정책 연구원 업무 자동화 묶음",
+    "version": "1.0.0",
+    "author": { "name": "BDI 데이터팀" }
+  }
+
+  → 동료가 호출할 때:  /research-team-plugin:skill-name
+                       (네임스페이스 = name 필드)
+
+  ───────────────────────────────────────────
+
+  ③ 로컬 테스트 → ④ zip 압축 → ⑤ 메신저 전달
+
+  $ claude --plugin-dir ./my-plugin    ← 보내기 전 검증
+
+  ───────────────────────────────────────────
+
+  동료의 설치 (두 줄):
 
   /plugin marketplace add /풀어둔/경로
   /plugin install research-team-plugin
@@ -80,23 +99,28 @@
   📊 적합도
      소요 시간    : 30분 (1회성)
      적합 규모    : 3~10명, git이 어려운 팀
-     장점        : 묶음 설치, git 서버·계정 불필요
+     장점        : 묶음 설치, git 서버·계정 불필요, 네임스페이스로 충돌 방지
      단점        : 자동 업데이트 X (수정 시 zip 다시 전달)
 ```
 
 **발표 노트 (1분 30초)**:
-> "1단계, 플러그인 zip 공유입니다. 0단계가 한 파일이었다면 여기는 묶음으로 갑니다. 그래도 git은 여전히 안 씁니다.
+> "1단계, 플러그인 zip 공유입니다. 0단계가 한 파일이었다면 여기는 묶음으로 가요. 핵심 규칙 하나만 — 플러그인은 `.claude-plugin/plugin.json` 매니페스트를 가진 디렉토리입니다. 이름이랑 위치는 자유롭게 정하셔도 되고요.
 >
-> 우선 .claude 폴더에 plugin.json 한 파일만 추가합니다. 보시는 4줄이 전부예요. 그러고 나서 그 폴더 통째로 zip으로 압축해서 메신저나 사내 드라이브로 보냅니다.
+> 만들기는 세 단계입니다. 먼저 폴더 하나(예: `my-plugin`) 만들고, 안에 `.claude-plugin/plugin.json` 하나 두고, `skills`·`agents`·`hooks` 폴더는 `plugin.json` '옆'에 같은 레벨로 둡니다. 흔한 실수가 이 폴더들을 `.claude-plugin/` 안에 넣는 건데, 그건 안 됩니다. 둘째, `plugin.json` 4필드 — `name`이 호출 prefix가 됩니다. `/my-plugin:skill` 이런 식이에요. 셋째, zip 만들기 전에 `claude --plugin-dir`로 로컬에서 한 번 테스트하시고, 정상 동작하면 압축해서 메신저로 보냅니다.
 >
-> 동료는 받은 zip을 풀고 두 줄만 입력하면 됩니다. '/plugin marketplace add' 뒤에 풀어둔 경로, 그 다음 '/plugin install'. 끝.
->
-> 단점은 자동 업데이트가 없다는 거예요. 여러분이 skill을 수정하면 zip을 다시 보내야 합니다. 자동 업데이트가 필요하면 다음 2단계로 가시면 됩니다."
+> 동료는 zip 풀고 두 줄 — `marketplace add`와 `install`. 끝. 단점은 자동 업데이트가 없다는 것 — 수정하면 zip 재전달. 그게 부담되면 다음 2단계로 갑니다."
 
 **시각 표현 메모**:
-- json 코드블록 + 동료 설치 명령 별도 박스.
-- "git 불필요" 라벨 강조.
+- 좌측: 만드는 사람 단계(①~⑤) — 디렉토리 구조 + JSON 코드블록.
+- 우측: 받는 사람 단계 — 두 줄 명령 박스 + 네임스페이스 호출 예시.
+- "흔한 실수" 경고를 시각적으로 강조 (오렌지 박스).
 - 좌측 단계 번호(1) 강조.
+
+**근거 (공식 문서)**:
+- 플러그인 정의: `.claude-plugin/plugin.json` 가진 디렉토리 (이름·위치 자유). https://code.claude.com/docs/en/plugins (Plugin structure overview)
+- 흔한 실수 경고 원문: "Don't put `commands/`, `agents/`, `skills/`, or `hooks/` inside the `.claude-plugin/` directory."
+- 로컬 테스트: `--plugin-dir` 플래그 (zip 압축 파일도 지원, v2.1.128+)
+- 권장은 별도 디렉토리(네임스페이싱·마켓플레이스 등록 유리)지만 `.claude/` 자체를 플러그인 루트로 쓰는 것도 기술적으로 가능.
 
 ---
 
@@ -111,12 +135,13 @@
 
   ───────────────────────────────────────────
 
-  1단계와 같은 plugin.json + git 저장소 사용
+  1단계와 같은 플러그인 디렉토리 + git 저장소에 push
 
   당신:
-    $ git add .claude/
-    $ git commit -m "share research plugin"
-    $ git push
+    $ cd my-plugin/
+    $ git init && git remote add origin <git-url>
+    $ git add . && git commit -m "share research plugin"
+    $ git push -u origin main
 
   ───────────────────────────────────────────
 
