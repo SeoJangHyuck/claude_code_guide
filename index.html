@@ -2921,9 +2921,9 @@ html, body {
 │   ├── <span class="secondary">agents/</span>                     <span class="num">⑤</span> <span class="desc">격리된 작업자</span>
 │   │   └── 내-agent-이름/
 │   │       └── AGENT.md
-│   ├── <span class="secondary">.mcp.json</span>                   <span class="num">⑥</span> <span class="desc">외부 시스템 연결</span>
 │   └── <span class="secondary">.claude-plugin/</span>             <span class="num">⑦</span> <span class="desc">위 ②~⑥을 묶은 패키지</span>
 │       └── plugin.json
+├── <span class="secondary">.mcp.json</span>                       <span class="num">⑥</span> <span class="desc">외부 시스템 연결 (프로젝트 루트)</span>
 └── (그 외 일반 프로젝트 파일)</div>
 
       <div class="conclusion-line">
@@ -3170,11 +3170,11 @@ html, body {
             <li><b>MCP</b> = Model Context Protocol (Anthropic이 공개한 표준)</li>
             <li><b>역할</b>: Claude가 외부 서비스 API를 직접 호출할 수 있도록 인증·요청·응답을 중간에서 처리</li>
             <li><b>연결 대상</b>: 평소 업무에 쓰는 SaaS · DB — Slack · Notion · Google Drive · GitHub · Confluence · Figma · PostgreSQL 등</li>
-            <li><b>위치</b>: <code>.claude/.mcp.json</code> (git 커밋 시 동료도 동일 연결)</li>
+            <li><b>위치</b>: <code>.mcp.json</code> (프로젝트 루트, git 커밋 시 동료도 동일 연결)</li>
             <li><b>자동 호출</b>: 등록된 MCP 중 Claude가 작업 맥락 보고 필요한 것만 호출 — 매번 지시할 필요 X</li>
           </ul>
         </div>
-        <div class="code-block"><span class="cmt"># ① 설정: .claude/.mcp.json에 등록</span>
+        <div class="code-block"><span class="cmt"># ① 설정: 프로젝트 루트 .mcp.json에 등록</span>
 {
   <span class="key">"mcpServers"</span>: {
     <span class="key">"notion"</span>: {
