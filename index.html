@@ -2035,6 +2035,62 @@ html, body {
   font-weight: 300;
 }
 
+/* === Harness why-diff grid (slide 3-3) === */
+.content-slide.compact .compare-row { margin-top: 16px; }
+.harness-why-diff {
+  margin-top: 16px;
+  border-top: 1px solid var(--light-gray);
+  padding-top: 14px;
+}
+.harness-why-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-gray);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.harness-diff-grid {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.harness-diff-grid .diff-header {
+  padding: 9px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  background: var(--bg-soft);
+  color: var(--text-black);
+}
+.harness-diff-grid .diff-header.orange {
+  background: var(--krafton-orange);
+  color: #fff;
+}
+.harness-diff-grid .diff-label {
+  padding: 9px 14px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-gray);
+  background: var(--bg-soft);
+  letter-spacing: 0.03em;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+}
+.harness-diff-grid .diff-cell {
+  padding: 9px 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  border-left: 1px solid rgba(0,0,0,0.06);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+}
+.harness-diff-grid .diff-cell.hl { background: rgba(249,66,58,0.04); }
+.harness-diff-grid .diff-cell.hl b { color: var(--krafton-orange); }
+
 /* === Big metaphor (slide 3-2) === */
 .metaphor-slide {
   display: flex;
@@ -2663,7 +2719,7 @@ html, body {
       <span>Chapter 3 — 도구 변천사 + 하네스 엔지니어링</span>
       <span>3 / 4</span>
     </div>
-    <div class="content-slide">
+    <div class="content-slide compact">
       <div class="headline">엔지니어링의 진화 — 사람이 개입하는 양이 줄어든다</div>
       <div class="lead">매 순간 명령(채찍질) → 한 번 가르치기(길) → 절차 자체를 도구화(안장).</div>
 
@@ -2690,6 +2746,26 @@ html, body {
           <div class="step-meta">🐎 안장과 마구를 채우기</div>
           <div class="step-quote">말이 일하는 절차 자체를 도구화. 한 번 안장 채워두면 매번 채찍질하지 않아도 됨.</div>
           <div class="step-foot">→ Skill · Hook · Agent · MCP · Plugin</div>
+        </div>
+      </div>
+      <div class="harness-why-diff">
+        <div class="harness-why-label">왜 결정적으로 다른가</div>
+        <div class="harness-diff-grid">
+          <div class="diff-header"></div>
+          <div class="diff-header">컨텍스트 엔지니어링</div>
+          <div class="diff-header orange">하네스 엔지니어링</div>
+          <div class="diff-label">실행 보장</div>
+          <div class="diff-cell">모델에게 부탁</div>
+          <div class="diff-cell hl">조건 충족 시 <b>자동 실행</b></div>
+          <div class="diff-label">컨텍스트 로딩</div>
+          <div class="diff-cell">매 세션 전체 로드</div>
+          <div class="diff-cell hl"><b>필요할 때만</b> 로드</div>
+          <div class="diff-label">검증</div>
+          <div class="diff-cell">부탁</div>
+          <div class="diff-cell hl"><b>강제</b> <small style="opacity:.7">(Hook)</small></div>
+          <div class="diff-label">행동 결정</div>
+          <div class="diff-cell">모델이 추론</div>
+          <div class="diff-cell hl"><b>스크립트</b>가 실행</div>
         </div>
       </div>
     </div>
