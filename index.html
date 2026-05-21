@@ -2919,8 +2919,7 @@ html, body {
 │   ├── <span class="secondary">settings.json</span>               <span class="num">④</span> <span class="desc">권한·환경·hooks 설정</span>
 │   ├── <span class="secondary">settings.local.json</span>         <span class="desc">(개인용, gitignored)</span>
 │   ├── <span class="secondary">agents/</span>                     <span class="num">⑤</span> <span class="desc">격리된 작업자</span>
-│   │   └── 내-agent-이름/
-│   │       └── AGENT.md
+│   │   └── 내-agent-이름.md
 │   └── <span class="secondary">.claude-plugin/</span>             <span class="num">⑦</span> <span class="desc">위 ②~⑥을 묶은 패키지</span>
 │       └── plugin.json
 ├── <span class="secondary">.mcp.json</span>                       <span class="num">⑥</span> <span class="desc">외부 시스템 연결 (프로젝트 루트)</span>
@@ -3126,7 +3125,7 @@ html, body {
           <span class="label">정의</span>
           <h3>독립 컨텍스트 작업자</h3>
           <ul>
-            <li>위치: <b>.claude/agents/&lt;이름&gt;/AGENT.md</b></li>
+            <li>위치: <b>.claude/agents/&lt;이름&gt;.md</b></li>
             <li>실행: <b>별도 컨텍스트</b>에서 독립</li>
             <li>적합: 큰 탐색 / 병렬 처리 / 메인 대화 보호</li>
             <li>예: 4개 사이트 동시 크롤링, 5명 담당자 메일 동시 작성</li>

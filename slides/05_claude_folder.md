@@ -24,8 +24,7 @@
 │   ├── settings.json               ④ 권한·환경·hooks 설정
 │   ├── settings.local.json         (개인용, gitignored)
 │   ├── agents/                     ⑤ 격리된 작업자
-│   │   └── 내-agent-이름/
-│   │       └── AGENT.md
+│   │   └── 내-agent-이름.md
 │   └── .claude-plugin/             ⑦ 위 ②~⑥을 묶은 패키지
 │       └── plugin.json
 ├── .mcp.json                       ⑥ 외부 시스템 연결 (프로젝트 루트)
@@ -233,7 +232,7 @@ CLAUDE.md  =  프로젝트의 헌법
 **본문 콘텐츠**:
 
 ```
-.claude/agents/<이름>/AGENT.md  =  격리 작업자
+.claude/agents/<이름>.md  =  격리 작업자
 
   ──────────────────────────────────────────
 
