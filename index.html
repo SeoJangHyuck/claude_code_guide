@@ -3917,9 +3917,9 @@ html, body {
       <span>Chapter 7 — 사내 공유 flow</span>
       <span>2 / 4</span>
     </div>
-    <div class="content-slide">
+    <div class="content-slide compact">
       <div class="headline">2단계 — 플러그인 zip 공유</div>
-      <div class="lead">여러 자산(skill·rules·agent·hook)을 한 묶음으로. 여전히 git 불필요.</div>
+      <div class="lead">여러 자산(skill·agent·hook)을 한 묶음으로. 여전히 git 불필요.</div>
 
       <div class="share-step">
         <div class="ss-header">
@@ -3929,29 +3929,39 @@ html, body {
             <span class="ss-tag">git 불필요</span>
           </div>
         </div>
-        <div class="ss-body">
+        <div class="ss-body" style="grid-template-columns: 1.3fr 1fr;">
           <div class="ss-side">
-            <div class="who">당신</div>
-            ① <b>plugin.json</b> 추가 (이름·버전·설명)<br>
-            ② 플러그인 폴더 zip 압축<br>
-            ③ 메신저·드라이브로 전달
+            <div class="who">당신 — 만들기</div>
+            <b>①</b> 플러그인 디렉토리 (이름·위치 자유)
+<pre class="ss-json" style="margin: 4px 0; padding: 7px 10px; font-size: 10px; line-height: 1.5;">my-plugin/
+├── .claude-plugin/plugin.json   <span style="color:#F9423A">← 필수</span>
+├── skills/&lt;이름&gt;/SKILL.md
+├── agents/&lt;이름&gt;.md
+└── hooks/hooks.json              (선택)</pre>
+            <b>②</b> plugin.json — 4필드
+<pre class="ss-json" style="margin: 4px 0; padding: 7px 10px; font-size: 10px; line-height: 1.5;"><span class="k">{</span> <span class="k">"name"</span>: <span class="s">"research-team-plugin"</span>,   <span style="color:#F9423A">← 호출 prefix</span>
+  <span class="k">"description"</span>, <span class="k">"version"</span>, <span class="k">"author"</span> <span class="k">}</span></pre>
+            <b>③</b> 로컬 검증 → zip 압축 → 메신저 전달
+            <code class="ss-cmd" style="margin-top: 4px;">claude --plugin-dir ./my-plugin</code>
           </div>
           <div class="ss-side">
-            <div class="who">동료</div>
-            ① zip 압축 풀기<br>
-            ② 한 줄씩 입력:
+            <div class="who">동료 — 받기</div>
+            <b>①</b> zip 압축 풀기<br>
+            <b>②</b> 두 줄로 설치
             <code class="ss-cmd">/plugin marketplace add /풀어둔/경로</code>
             <code class="ss-cmd">/plugin install research-team-plugin</code>
+            <span class="ss-step" style="margin-top: 10px;">→ 호출 시 <b>네임스페이스 prefix</b>로:</span>
+            <code class="ss-cmd">/research-team-plugin:skill-name</code>
+            <span class="ss-step" style="font-size:11px; color:#888;">(prefix = plugin.json의 <code>name</code> 필드)</span>
           </div>
         </div>
         <div class="ss-fit">
           <div class="fit-item"><b>적합 규모</b><br>3~10명, git 어려운 팀</div>
-          <div class="fit-item"><b>장점</b><br>묶음 설치, git 서버 불필요</div>
+          <div class="fit-item"><b>장점</b><br>묶음 설치, 네임스페이스 충돌 방지</div>
           <div class="fit-item"><b>단점</b><br>자동 업데이트 X (수정 시 zip 재전달)</div>
         </div>
-        <div class="ss-doc">
-          <b>핵심 형식</b>: <code>.claude-plugin/plugin.json</code> 필수 — <code>name</code>, <code>version</code>, <code>description</code> 3필드. 폴더 안 모든 skills·rules·hooks 자동 포함.<br>
-          📖 참고: <a href="https://docs.claude.com/en/docs/claude-code/plugins" target="_blank">docs.claude.com — Plugins 가이드</a>
+        <div class="ss-doc" style="padding: 8px 14px;">
+          ⚠️ <b>흔한 실수</b>: <code>skills/</code>·<code>agents/</code>·<code>hooks/</code>를 <code>.claude-plugin/</code> 안에 넣지 말 것 — <code>plugin.json</code> '옆'에 같은 레벨로. &nbsp;📖 <a href="https://docs.claude.com/en/docs/claude-code/plugins" target="_blank">Plugins 가이드</a>
         </div>
       </div>
     </div>
@@ -3979,10 +3989,11 @@ html, body {
         <div class="ss-body">
           <div class="ss-side">
             <div class="who">당신</div>
-            1단계와 같은 plugin.json + git push
-            <code class="ss-cmd">git add .claude/</code>
-            <code class="ss-cmd">git commit -m "share plugin"</code>
-            <code class="ss-cmd">git push</code>
+            1단계와 같은 플러그인 디렉토리를 git 저장소에 push
+            <code class="ss-cmd">cd my-plugin/</code>
+            <code class="ss-cmd">git init &amp;&amp; git remote add origin &lt;url&gt;</code>
+            <code class="ss-cmd">git add . &amp;&amp; git commit -m "share plugin"</code>
+            <code class="ss-cmd">git push -u origin main</code>
           </div>
           <div class="ss-side">
             <div class="who">동료</div>
