@@ -2326,11 +2326,124 @@ html, body {
 <div id="stage">
 
   <!-- ============================================ -->
+  <!-- 사전 준비 안내 (표지 앞, 1슬라이드 / 2분)         -->
+  <!-- ============================================ -->
+
+  <!-- Slide 0-0: 사전 준비 -->
+  <section class="slide active" data-chapter="0" data-title="사전 준비 안내">
+    <div class="top-bar">
+      <span>Before We Start · 발표 시작 전</span>
+      <span></span>
+    </div>
+    <div class="content-slide" style="padding-top: 26px;">
+      <div class="headline" style="margin-bottom: 8px;">함께 준비해주세요</div>
+      <div class="lead" style="margin-bottom: 26px; font-size: 19px;">아래 5단계만 따라오시면 시연을 같이 해볼 수 있습니다. 각 카드의 주황색 링크를 클릭하면 새 창에서 열립니다.</div>
+
+      <!-- ★ STEP 0 — 슬라이드 URL (전체 박스 클릭 가능) -->
+      <a href="https://seojanghyuck.github.io/claude_code_guide" target="_blank" rel="noopener noreferrer"
+         style="text-decoration: none; color: inherit; display: block; margin-bottom: 26px;">
+        <div style="
+            background: #fff5f4;
+            border: 2px solid var(--krafton-orange);
+            border-radius: 14px;
+            padding: 22px 30px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            cursor: pointer;
+        ">
+          <div style="
+              flex: 0 0 auto;
+              width: 62px; height: 62px;
+              background: var(--krafton-orange);
+              color: #fff;
+              font-family: 'KRAFTON Headline', sans-serif;
+              font-size: 32px;
+              display: flex; align-items: center; justify-content: center;
+              border-radius: 10px;
+              line-height: 1;
+          ">★</div>
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: 14px; color: #666; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px;">
+              STEP 0 · 슬라이드 주소 — 지금 노트북에서 함께 열어주세요
+            </div>
+            <div style="font-family: 'Menlo', 'Consolas', 'Monaco', monospace; font-size: 28px; font-weight: 700; color: var(--krafton-orange); letter-spacing: -0.01em; word-break: break-all;">
+              seojanghyuck.github.io/claude_code_guide ↗
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4단계 그리드 -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+        <!-- Step 1 -->
+        <div style="background: #fafafa; border-radius: 12px; padding: 22px 20px 20px; border-top: 4px solid var(--krafton-orange); display: flex; flex-direction: column;">
+          <div style="font-family: 'KRAFTON Headline', sans-serif; font-size: 15px; color: var(--krafton-orange); margin-bottom: 10px; letter-spacing: 0.05em;">STEP 1</div>
+          <div style="font-size: 19px; font-weight: 700; margin-bottom: 12px; line-height: 1.3;">VSCode 설치</div>
+          <ul style="font-size: 14px; color: #444; line-height: 1.65; padding-left: 18px; margin: 0 0 14px; flex: 1; list-style: disc;">
+            <li>공식 사이트 접속</li>
+            <li>OS 자동 감지 → 설치 파일 다운로드</li>
+            <li>(Mac) zip 풀어 <b>Applications</b>로 이동<br>(Win) <b>.exe</b> 실행 → 안내대로 설치</li>
+          </ul>
+          <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer"
+             style="font-family: 'Menlo', 'Consolas', 'Monaco', monospace; font-size: 12px; color: var(--krafton-orange); text-decoration: none; word-break: break-all; font-weight: 700;">
+            code.visualstudio.com ↗
+          </a>
+        </div>
+
+        <!-- Step 2 -->
+        <div style="background: #fafafa; border-radius: 12px; padding: 22px 20px 20px; border-top: 4px solid var(--krafton-orange); display: flex; flex-direction: column;">
+          <div style="font-family: 'KRAFTON Headline', sans-serif; font-size: 15px; color: var(--krafton-orange); margin-bottom: 10px; letter-spacing: 0.05em;">STEP 2</div>
+          <div style="font-size: 19px; font-weight: 700; margin-bottom: 12px; line-height: 1.3;">Claude Code 확장 설치</div>
+          <ul style="font-size: 14px; color: #444; line-height: 1.65; padding-left: 18px; margin: 0 0 14px; flex: 1; list-style: disc;">
+            <li>VSCode 좌측 <b>확장(Extensions)</b> 패널 열기</li>
+            <li>검색창에 <b>"Claude Code"</b> 입력</li>
+            <li><b>Anthropic</b> 공식 확장 선택 → <b>Install</b></li>
+          </ul>
+          <div style="font-family: 'Menlo', 'Consolas', 'Monaco', monospace; font-size: 12px; color: var(--krafton-orange); font-weight: 700;">
+            단축키 ⌘/Ctrl + Shift + X
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div style="background: #fafafa; border-radius: 12px; padding: 22px 20px 20px; border-top: 4px solid var(--krafton-orange); display: flex; flex-direction: column;">
+          <div style="font-family: 'KRAFTON Headline', sans-serif; font-size: 15px; color: var(--krafton-orange); margin-bottom: 10px; letter-spacing: 0.05em;">STEP 3</div>
+          <div style="font-size: 19px; font-weight: 700; margin-bottom: 12px; line-height: 1.3;">데모 파일 다운로드</div>
+          <ul style="font-size: 14px; color: #444; line-height: 1.65; padding-left: 18px; margin: 0 0 14px; flex: 1; list-style: disc;">
+            <li>아래 링크 → Google Drive 이동</li>
+            <li>좌측 상단 <b>↓ 다운로드</b> 아이콘 클릭</li>
+            <li><b>bdi_demo.zip</b> 저장</li>
+          </ul>
+          <a href="https://drive.google.com/file/d/1EhIkJetYFAw6oqvNAeCQaKEuQ4w-Aejj/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+             style="font-family: 'Menlo', 'Consolas', 'Monaco', monospace; font-size: 10px; color: var(--krafton-orange); text-decoration: none; word-break: break-all; line-height: 1.5; font-weight: 700;">
+            drive.google.com/file/d/1EhIkJetYFAw6oqvNAeCQaKEuQ4w-Aejj/view?usp=sharing ↗
+          </a>
+        </div>
+
+        <!-- Step 4 -->
+        <div style="background: #fafafa; border-radius: 12px; padding: 22px 20px 20px; border-top: 4px solid var(--krafton-orange); display: flex; flex-direction: column;">
+          <div style="font-family: 'KRAFTON Headline', sans-serif; font-size: 15px; color: var(--krafton-orange); margin-bottom: 10px; letter-spacing: 0.05em;">STEP 4</div>
+          <div style="font-size: 19px; font-weight: 700; margin-bottom: 12px; line-height: 1.3;">압축 해제 + 폴더 열기</div>
+          <ul style="font-size: 14px; color: #444; line-height: 1.65; padding-left: 18px; margin: 0; flex: 1; list-style: disc;">
+            <li><b>bdi_demo.zip</b> 압축 풀기 → <b>bdi_demo</b> 폴더 생성</li>
+            <li>VSCode 실행 → <b>File › Open Folder…</b></li>
+            <li>방금 푼 <b>bdi_demo</b> 폴더 선택 → 열기</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>Pre-flight</span>
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
   <!-- 챕터 1. 자기소개 (3슬라이드 / 4분)              -->
   <!-- ============================================ -->
 
   <!-- Slide 1-1: 표지 -->
-  <section class="slide orange active" data-chapter="1" data-title="표지">
+  <section class="slide orange" data-chapter="1" data-title="표지">
     <div class="top-bar">
       <span></span>
       <span></span>
