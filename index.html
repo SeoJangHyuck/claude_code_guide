@@ -2912,7 +2912,7 @@ html, body {
     <div class="chapter-divider">
       <div class="cd-num">Chapter 04</div>
       <div class="cd-title">도구·제품 비교<br>왜 Claude Code인가</div>
-      <div class="cd-sub">같은 기준으로 펴놓고 보면, 어디서 차이가 갈리는지 보인다.</div>
+      <div class="cd-sub">같은 기준으로 놓고 보면 차이가 보인다.</div>
     </div>
     <div class="footer"><span>Ch. 4</span><span></span></div>
   </section>
@@ -2925,7 +2925,7 @@ html, body {
     </div>
     <div class="content-slide compact tight-head">
       <div class="headline">5개 도구, 4축 비교</div>
-      <div class="lead">각자 만들어진 목적이 다르다. <b>같은 기준에 펴놓고 보면</b> 어디서 차이가 갈리는지 보인다. (2026.05 기준, 공식 문서)</div>
+      <div class="lead">기능은 비슷해지는 중 — <b>Claude Code는 사내 자료 + 반복 업무 자산화에 특화</b> (2026.11 기준)</div>
 
       <table class="compare-table dense roomy">
         <thead>
@@ -2933,8 +2933,8 @@ html, body {
             <th class="axis"></th>
             <th>ChatGPT · Gemini</th>
             <th>Cursor</th>
-            <th>Claude 웹</th>
-            <th>Cowork</th>
+            <th style="width: 15%;">Claude 웹</th>
+            <th>Claude Cowork</th>
             <th class="highlight-col-header">Claude Code</th>
           </tr>
           <tr class="tool-specialty-row">
@@ -2942,105 +2942,106 @@ html, body {
             <td>빠른 검색·일반 질문</td>
             <td>코딩 전용</td>
             <td>문서 채팅·자료 요약</td>
-            <td>로컬 파일·앱 자율 처리</td>
+            <td>PC 파일·앱 자율 처리</td>
             <td class="highlight-col">사내 자료 + 반복 업무 자산화</td>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th class="axis">1. 모델·답변 품질<small class="axis-desc">영역별 강점</small></th>
-            <td>GPT-5 · Gemini 3.x<small>웹검색·멀티모달</small></td>
-            <td>Claude/GPT 모델 선택<small>모델 선택권</small></td>
-            <td>Claude Sonnet/Opus<small>긴 문서·추론</small></td>
-            <td>Claude Sonnet/Opus<small>긴 문서·추론</small></td>
-            <td class="highlight-col">Claude Sonnet/Opus<small>코딩·에이전트</small></td>
+            <td>GPT·Gemini 모델<small>웹검색·이미지·음성</small></td>
+            <td>자체 모델 기본<small>Claude·GPT·Gemini는 상위 요금제</small></td>
+            <td>Claude 모델<small>긴 문서·추론</small></td>
+            <td>Claude 모델<small>긴 문서·추론</small></td>
+            <td class="highlight-col">Claude 모델<small>코딩·자율 작업</small></td>
           </tr>
           <tr>
-            <th class="axis">2. 사내 자료·보안<small class="axis-desc">내 PC 파일을 어떻게 다루나</small></th>
-            <td><span class="x">✗</span> 업로드 필수<small>학습 옵트아웃은 되나 파일은 클라우드로</small></td>
-            <td>열린 작업 폴더 읽기·쓰기<small>로컬</small></td>
-            <td><span class="x">✗</span> 업로드 필수<small>학습 옵트아웃은 되나 파일은 클라우드로</small></td>
-            <td>로컬 파일·앱 직접 조작<small>로컬</small></td>
-            <td class="highlight-col"><b>로컬 실행</b><small>업로드 자체가 없음</small></td>
+            <th class="axis">2. 내 파일 다루는 법<small class="axis-desc">어느 도구든 AI가 읽은 내용은 클라우드로 전송</small></th>
+            <td>웹은 파일 업로드 필요<small>ChatGPT 데스크톱은 폴더 연결</small></td>
+            <td>열린 폴더 직접 읽기·쓰기</td>
+            <td>파일 업로드 필요</td>
+            <td>PC 파일·앱 직접 조작</td>
+            <td class="highlight-col"><b>PC 폴더 직접 읽기·쓰기</b><small>파일을 따로 올리지 않음</small></td>
           </tr>
           <tr>
-            <th class="axis">3. 반복 업무 자산화<small class="axis-desc">한 번 짜두면 매주 호출</small></th>
-            <td>GPTs/Gems + 메모리<small>(2종)</small></td>
-            <td>규칙 4종 + Skills<small>(2종)</small></td>
-            <td>Skills + 지시문<small>(2종)</small></td>
-            <td>목표 지시 → 다단계 자율 처리<small>deliverable 중심</small></td>
-            <td class="highlight-col"><b>Skills · Hook · Subagents · Plugins · MCP · Agent SDK</b><small>(6종) — 절차·자동 가드·보조 AI·기능 묶음·외부 연결·코드 키트</small></td>
+            <th class="axis">3. 반복 업무 자산화<small class="axis-desc">한 번 만들어 매주 재사용</small></th>
+            <td>Skills·메모리 + 플러그인(ChatGPT)<small>ChatGPT 일부 환경엔 Hook·Subagent도</small></td>
+            <td>Skills · Hooks · Subagents · Plugins</td>
+            <td>Skills·플러그인 + 지시문<small>Hook·Subagent는 미지원</small></td>
+            <td>Skills · Hooks · Subagents · Plugins</td>
+            <td class="highlight-col"><b>Skills · Hook · Subagents · Plugins</b><small>절차·자동 실행·보조 작업자·기능 묶음</small></td>
           </tr>
           <tr>
-            <th class="axis">4. 표준·외부 연결·사내 공유<small class="axis-desc">Notion·Slack·동료와 연결</small></th>
-            <td>Pulse + 외부 앱 / 워크스페이스</td>
-            <td>Slack·GitHub·Linear·웹훅</td>
-            <td>커넥터 5종<small>드라이브·Slack·GitHub·MS365·Linear</small></td>
-            <td>Claude 데스크톱 앱<small>로컬 파일·앱 직접 핸들링</small></td>
-            <td class="highlight-col"><b>MCP 오픈 표준 + GitHub·Slack·Chrome</b><small><b>사내 공유 4단계: 파일·zip·git·마켓플레이스</b> (챕터 7)</small></td>
+            <th class="axis">4. 외부 연결<small class="axis-desc">MCP = 외부 서비스 연결</small></th>
+            <td>MCP 연결 — ChatGPT<small>앱 40개 이상 연결 — Gemini</small></td>
+            <td>MCP + Slack·GitHub 등</td>
+            <td>MCP 연결<small>URL로 추가도 가능</small></td>
+            <td>MCP 연결<small>Chrome 연동</small></td>
+            <td class="highlight-col"><b>MCP + GitHub·Slack·Chrome</b></td>
           </tr>
         </tbody>
       </table>
       <div class="table-source">
-        2026-05 기준 · 출처: <a href="https://www.anthropic.com/claude-code" target="_blank">anthropic.com/claude-code</a> ·
-        <a href="https://openai.com/chatgpt" target="_blank">openai.com</a> ·
-        <a href="https://deepmind.google/models/gemini/" target="_blank">deepmind.google</a> ·
-        <a href="https://cursor.com" target="_blank">cursor.com</a>
-        <br>※ 학습 데이터 opt-out은 모든 도구가 제공하지만, 채팅형 도구는 작업 시작 시 파일이 일단 클라우드에 업로드됨
+        출처: <a href="https://code.claude.com/docs/en/overview" target="_blank">Claude Code</a> ·
+        <a href="https://claude.com/docs" target="_blank">Claude</a> ·
+        <a href="https://learn.chatgpt.com/docs" target="_blank">ChatGPT</a> ·
+        <a href="https://gemini.google/release-notes/" target="_blank">Gemini</a> ·
+        <a href="https://cursor.com/docs" target="_blank">Cursor</a> 공식 문서
+        <br>※ AI 학습 사용 여부는 요금제·설정 따라
       </div>
     </div>
     <div class="footer"><span>Ch. 4</span><span></span></div>
   </section>
 
-  <!-- Slide 4-2: 결정적 차이 4가지 (워크플로우 순서: 시작→작업→자산화·검증→공유) -->
-  <section class="slide" data-chapter="4" data-title="결정적 차이 4가지">
+  <!-- Slide 4-2: Claude Code로 일하는 흐름 4단계 (워크플로우 순서: 시작→작업→자산화·검증→공유) -->
+  <section class="slide" data-chapter="4" data-title="Claude Code로 일하는 흐름 4단계">
     <div class="top-bar">
       <span>Chapter 4 — 도구·제품 비교</span>
       <span>2 / 3</span>
     </div>
     <div class="content-slide compact">
-      <div class="headline">결정적 차이 4가지</div>
-      <div class="lead">①번 축(답변 품질)은 다 강하다. <b>②~④번 축에서 갈린다</b> — 일하는 흐름 순서로 4가지.</div>
+      <div class="headline">Claude Code로 일하는 흐름 4단계</div>
+      <div class="lead">skill·hook 같은 기능은 여러 도구에 공통. <b>Claude Code는 한 번 만든 설정을 VS Code·데스크톱·터미널 어디서든 그대로 사용</b></div>
 
       <div class="diff-grid cards-4">
-        <!-- ① 시작 / 진입 — VSCode 확장 -->
+        <!-- ① 시작 / 진입 — VS Code 확장 -->
         <div class="diff-card">
           <span class="step-label">① 시작</span>
-          <div class="diff-title">터미널 없이 VSCode 확장 한 줄로 시작</div>
-          <p class="diff-bullet">검은 터미널 X — <b>파일 트리·메뉴·마우스 그대로</b></p>
-          <p class="diff-bullet">확장 설치 = Claude Code 연동 완료</p>
-          <p class="diff-bullet">VSCode 마켓 확장도 같이 씀 — <b>Markdown All in One · vscode-pdf · Code Spell Checker</b> (각 5M+ 다운로드)</p>
-          <p class="diff-link">→ 5장 진입 가이드 + <b>6장 시연도 VSCode 확장</b>으로</p>
+          <div class="diff-title">터미널 없이 VS Code 확장으로 시작</div>
+          <p class="diff-bullet"><b>파일 목록·메뉴·마우스</b>로 그대로 조작</p>
+          <p class="diff-bullet">유료 Claude 플랜 또는 개발자용 Console 계정으로 로그인</p>
+          <p class="diff-bullet">PDF 보기·철자 검사 등 다른 확장도 함께</p>
+          <p class="diff-link">→ 설치는 <b>사전 준비·9장</b>, 6장 시연도 VS Code</p>
         </div>
 
-        <!-- ② 작업 / 보안 — 로컬 실행 (업로드 자체가 없음) -->
+        <!-- ② 작업 / 보안 — 로컬 폴더 직접 작업 (수동 업로드 없음 · 읽은 내용은 Claude API로 암호화 전송) -->
         <div class="diff-card">
           <span class="step-label">② 작업</span>
-          <div class="diff-title">작업을 클라우드 연동 없이 로컬에서</div>
-          <p class="diff-bullet">파일이 내 PC에서 그대로 처리 — <b>클라우드 업로드 자체가 없음</b></p>
-          <p class="diff-bullet">채팅형 도구(ChatGPT·Gemini·Claude 웹)는 학습 옵트아웃은 되지만, <b>작업 시작 시 파일은 클라우드로</b> 올라감</p>
-          <p class="diff-link">→ <b>5장 settings.json</b>에서 권한·자동 가드 설정</p>
+          <div class="diff-title">내 PC 폴더를 따로 올리지 않고 바로 작업</div>
+          <p class="diff-bullet">대화·읽은 내용은 <b>암호화되어 Claude 서버로 전송</b></p>
+          <p class="diff-bullet">웹 채팅은 작업 전 파일 업로드 필요</p>
+          <p class="diff-bullet">AI 학습 사용 여부는 요금제·설정 따라</p>
+          <p class="diff-link">→ 권한 설정(허용·금지 목록)은 <b>5장</b></p>
         </div>
 
         <!-- ③ 자산화 / 검증 — Skills + Subagents + Hook -->
         <div class="diff-card">
           <span class="step-label">③ 자산화·검증</span>
-          <div class="diff-title">같은 작업을 매주 다시 짜지 않고, 환각이 박히기 전에 막는다</div>
-          <p class="diff-bullet"><b>Skills</b> — 한 번 짜둔 절차를 매주 호출 (반복 분석·자료 정리)</p>
-          <p class="diff-bullet"><b>Subagents</b> — 긴 작업·여러 자료 병렬 처리 (격리된 컨텍스트)</p>
-          <p class="diff-bullet"><b>Hook 29개 이벤트</b> — 파일 저장 직전·도구 호출 전 자동 검증, settings.json 한 줄로 동작</p>
+          <div class="diff-title">반복 작업은 한 번 만들어 재사용, 작업 전후는 자동 점검</div>
+          <p class="diff-bullet"><b>Skills</b> — 정리해 둔 작업 절차 (반복 분석·자료 정리)</p>
+          <p class="diff-bullet"><b>Subagents</b> — 일을 나눠 맡는 보조 작업자</p>
+          <p class="diff-bullet"><b>Hook</b> — 정해진 순간 자동 실행되는 동작 (작업 전 막기·작업 후 확인)</p>
           <p class="diff-link">→ <b>5장 skills · agents · hooks</b></p>
         </div>
 
-        <!-- ④ 공유 — git (.claude) + plugin marketplace + MCP -->
+        <!-- ④ 공유 — 작업 폴더째(CLAUDE.md·.claude/·루트 .mcp.json) + plugin + MCP -->
         <div class="diff-card">
           <span class="step-label">④ 공유</span>
-          <div class="diff-title">동료가 만든 절차를 git 또는 plugin으로 받아쓴다</div>
-          <p class="diff-bullet"><b>git</b> — <b>.claude/ 폴더 통째로 공유</b> (절차·권한·외부 연결까지)</p>
-          <p class="diff-bullet"><b>Plugin</b> — 패키지로 묶어 marketplace 배포, 한 줄로 설치</p>
-          <p class="diff-bullet"><b>MCP 오픈 표준</b> — 다른 도구가 만든 연결도 그대로 흡수</p>
-          <p class="diff-bullet">GitHub OSS 자산도 동일 — <b>awesome-claude-code · claude-code-skills · plugins</b></p>
-          <p class="diff-link">→ <b>7장 사내 공유 flow</b> (파일 → zip → git → marketplace 4단계)</p>
+          <div class="diff-title">동료가 만든 절차를 받아 쓴다</div>
+          <p class="diff-bullet"><b>작업 폴더째</b> 공유(개인 설정 파일 제외)</p>
+          <p class="diff-bullet"><b>Plugin</b> — skill 등을 묶은 설치 꾸러미 (작업 폴더와 따로 설치)</p>
+          <p class="diff-bullet"><b>MCP</b> — 다른 AI 도구용 연결도 등록해 사용</p>
+          <p class="diff-link">→ <b>7장 사내 공유 4단계</b></p>
         </div>
       </div>
     </div>
@@ -3056,7 +3057,7 @@ html, body {
     <div class="message-slide">
       <p>비교는 여기까지.</p>
       <p>
-        그 차이가 실제로 박히는 곳 —<br>
+        그 흐름이 실제로 담기는 곳 —<br>
         <span class="accent">.claude 폴더.</span>
       </p>
     </div>
