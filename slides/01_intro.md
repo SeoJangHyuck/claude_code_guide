@@ -26,7 +26,7 @@
   💼  linkedin.com/in/seo-jang-hyuck
 
 [ 일시·주최 ]
-2026.05.XX · 부산연구원 (BDI)
+2026.05.22 · 부산연구원 (BDI) · 2026.11 내용 갱신
 ```
 
 **발표 노트 (talk track, 30초)**:
