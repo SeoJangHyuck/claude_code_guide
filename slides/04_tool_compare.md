@@ -6,7 +6,7 @@
 >
 > 모든 데이터: 2026-11 기준 (Claude Code v2.1.326) 공식 문서 (code.claude.com/docs, claude.com/docs, learn.chatgpt.com, gemini.google, cursor.com/docs). 발표 직전 한 번 더 검증.
 >
-> 슬라이드 용어는 덱 전체와 같게: hook = "정해진 순간 자동 실행되는 동작"(짧게 "자동 실행"), subagent = "보조 작업자", MCP = "외부 서비스 연결", 권한 = "권한 설정(허용·금지 목록)", "프로젝트" → "작업 폴더", 공유 = "작업 폴더째 공유(개인 설정 파일 제외)", Console = "개발자용 Console 계정". 단, 4-1 비교표는 이전 표기를 유지한다(2026-11-18 발표자 결정).
+> 슬라이드 용어는 덱 전체와 같게: hook = "정해진 순간 자동 실행되는 동작"(짧게 "자동 실행"), subagent = "보조 작업자", MCP = "외부 서비스 연결", 권한 = "권한 설정(허용·금지 목록)", "프로젝트" → "작업 폴더", 공유 = "작업 폴더째 공유(개인 설정 파일 제외)", Console = "개발자용 Console 계정". 단, 4-1 비교표는 이전 표기를 유지하되, Claude Code·Cowork의 3·4번 칸은 둘의 차이(설정이 남는 곳)가 보이게 고쳤다(2026-11-18 발표자 요청).
 
 (장 표지 부제: "같은 기준으로 놓고 보면 차이가 보인다.")
 
@@ -41,13 +41,15 @@
 3. 반복 업무 자산화   Skills·메모리 +     Skills · Hooks ·    Skills·플러그인 +   Skills · Hooks ·    Skills · Hook ·
    (한 번 만들어      플러그인(ChatGPT)   Subagents ·         지시문              Subagents ·         Subagents · Plugins
    매주 재사용)       (ChatGPT 일부       Plugins             (Hook·Subagent는    Plugins             (절차·자동 검사·
-                      환경엔 Hook·                            미지원)                                 보조 AI·기능 묶음)
-                      Subagent도)
+                      환경엔 Hook·                            미지원)             (프로젝트 지침은    보조 AI·기능 묶음)
+                      Subagent도)                                                 내 PC에만 —         → 작업 폴더에 파일로
+                                                                                  공유 안 됨)         저장, 폴더째 공유
 
-4. 외부 연결          MCP 연결 —          MCP + Slack·        커넥터 목록(MCP)    커넥터(MCP)·        MCP + GitHub·
-   (MCP = 외부        ChatGPT             GitHub 등           (URL로 추가도       플러그인            Slack·Chrome
-    서비스 연결 표준) (앱 40개 이상                           가능)               (Chrome 연동)
-                      연결 — Gemini)
+4. 외부 연결          MCP 연결 —          MCP + Slack·        커넥터 목록(MCP)    커넥터(MCP)·        MCP 연결 ·
+   (MCP = 외부        ChatGPT             GitHub 등           (URL로 추가도       플러그인            Chrome 연동
+    서비스 연결 표준) (앱 40개 이상                           가능)               (계정에 추가 ·      (연결 설정도
+                      연결 — Gemini)                                              Chrome 연동)        폴더째 공유,
+                                                                                                      로그인은 각자)
 
 출처: Claude Code · Claude · ChatGPT · Gemini · Cursor 공식 문서
 ※ AI 학습에 쓰이는지는 요금제·설정별
@@ -60,9 +62,9 @@
 >
 > 나머지 세 축에서는 도구마다 일하는 방식이 다릅니다. 2번 사내 자료. 웹 채팅 도구는 파일을 먼저 올려야 합니다. Cursor는 열린 작업 폴더를, Cowork는 로컬 파일을 따로 올리지 않고 직접 다루고, ChatGPT도 데스크톱 앱에서는 로컬 폴더를 연결할 수 있게 됐습니다. Claude Code도 로컬 폴더를 직접 읽고 씁니다. 다만 어느 도구든 AI가 읽은 내용은 답을 만들려고 클라우드 모델로 전송됩니다 — 축 이름 아래 작은 글씨가 그 얘기예요. Cursor도 코드 맥락을 모델 제공사로 보내고, Claude Code는 대화와 읽은 파일 내용을 Claude API로 암호화(TLS)해 보냅니다. 그래서 이 축의 차이는 수동 업로드가 필요한지입니다. Claude 웹처럼 업로드하는 도구도 학습 옵트아웃은 되지만, 옵트아웃은 '보낸 데이터로 학습하지 않음'이지 '보내지 않음'이 아닙니다. 학습에 쓰이는지는 도구마다 요금제·설정별로 다르고, 다음 장에서 Claude Code 기준으로 다시 짚겠습니다.
 >
-> 3번 반복 업무 자산화. 이름이 낯설 텐데, Claude Code 칸 아래 작은 글씨가 뜻풀이입니다. Skill은 정리해 둔 작업 절차, Hook은 정해진 순간에 자동으로 도는 검사, Subagent는 일을 나눠 맡는 보조 AI, Plugin은 이것들을 묶은 설치 꾸러미예요. 한 번 짜두면 매주 호출할 수 있는 이런 자산은 이제 대부분 도구에 있습니다. Cursor는 이 네 가지에 규칙 4종과 MCP, 그리고 2026년 10월에 나온 Agent SDK까지 갖췄고, Cowork도 Skills·Hook·Subagent(플러그인의 agents)·플러그인을 씁니다. Claude 웹은 Skills·플러그인까지 쓰고, 플러그인에 든 Hook·Subagent(agents)는 웹 채팅에서 동작하지 않아요. ChatGPT도 Skills·플러그인을 쓰고, 표에 '일부 환경'이라고 적은 곳은 이렇습니다 — 웹의 ChatGPT Work(Ultra 모드)에서는 Subagent를, 데스크톱 앱의 Work·Codex(로컬 실행)에서는 Hook까지 씁니다. 플러그인은 ChatGPT 쪽 얘기고, Gemini는 Skills와 연결 앱 구조입니다. ChatGPT와 Gemini는 맞춤 GPT와 Gems를 각각 플러그인·Skills로 옮기는 중입니다. Claude Code도 이 네 가지를 다 쓰고, 4번 축의 MCP와 코드로 에이전트를 만드는 Agent SDK까지 갖췄습니다. 같은 플러그인 폴더를 claude.ai·Cowork에도 설치할 수 있고요.
+> 3번 반복 업무 자산화. 이름이 낯설 텐데, Claude Code 칸 아래 작은 글씨가 뜻풀이입니다. Skill은 정리해 둔 작업 절차, Hook은 정해진 순간에 자동으로 도는 검사, Subagent는 일을 나눠 맡는 보조 AI, Plugin은 이것들을 묶은 설치 꾸러미예요. 한 번 짜두면 매주 호출할 수 있는 이런 자산은 이제 대부분 도구에 있습니다. Cursor는 이 네 가지에 규칙 4종과 MCP, 그리고 2026년 10월에 나온 Agent SDK까지 갖췄고, Cowork도 Skills·Hook·Subagent(플러그인의 agents)·플러그인을 씁니다. Claude 웹은 Skills·플러그인까지 쓰고, 플러그인에 든 Hook·Subagent(agents)는 웹 채팅에서 동작하지 않아요. ChatGPT도 Skills·플러그인을 쓰고, 표에 '일부 환경'이라고 적은 곳은 이렇습니다 — 웹의 ChatGPT Work(Ultra 모드)에서는 Subagent를, 데스크톱 앱의 Work·Codex(로컬 실행)에서는 Hook까지 씁니다. 플러그인은 ChatGPT 쪽 얘기고, Gemini는 Skills와 연결 앱 구조입니다. ChatGPT와 Gemini는 맞춤 GPT와 Gems를 각각 플러그인·Skills로 옮기는 중입니다. Claude Code도 이 네 가지를 다 쓰고, 4번 축의 MCP와 코드로 에이전트를 만드는 Agent SDK까지 갖췄습니다. 같은 플러그인 폴더를 claude.ai·Cowork에도 설치할 수 있고요. 그러면 Cowork와 Claude Code는 뭐가 다르냐 — 기능 목록은 같아도 설정이 남는 곳이 다릅니다. Cowork 프로젝트의 폴더·지침·메모리는 내 PC 앱에만 있고 다른 사람과 공유되지 않습니다. Claude Code는 지침(CLAUDE.md)·규칙·skill·자동 실행 설정이 작업 폴더 안 파일이라, 폴더째 넘기면 동료도 같은 설정으로 일합니다. 같은 일을 팀이 똑같이 반복하게 만드는 차이이고, 방법은 7장에서 봅니다. 참고로 코딩 도구인 Cursor도 규칙·연결 설정을 프로젝트 파일(.cursor/rules, .cursor/mcp.json)로 둡니다.
 >
-> 4번 외부 연결. MCP는 Notion·Slack 같은 외부 서비스를 AI에 연결하는 표준입니다. 이제 대부분 도구가 MCP로 외부 연결을 붙입니다 — Cursor, ChatGPT, Claude 웹, Cowork 모두 MCP 커넥터를 씁니다. Cursor는 MCP에 더해 Slack·Teams·GitHub·Linear·Jira·Notion 연동을 공식 제공하고, Claude 웹은 커넥터 디렉터리에서 고르거나 목록에 없는 서버를 URL로 사용자 지정 커넥터로 추가합니다(Team·Enterprise는 Owner가 조직에 추가). Cowork는 claude.ai 계정에 켜 둔 커넥터·플러그인을 그대로 쓰고 Claude in Chrome과도 연동됩니다. Gemini는 40개 이상 앱을 연결하고요(대부분 미국·영어 기준). Claude Code도 MCP로 연결하고 GitHub·Slack·Chrome 연동이 있습니다. 팀 공유는 이 표에서 뺐습니다. 팀 단위 플러그인 공유는 Cursor(Teams·Enterprise 요금제의 팀 마켓플레이스), ChatGPT(마켓플레이스 공유, 워크스페이스 관리자의 GitHub 마켓플레이스 동기화), Claude 웹·Cowork(조직 Owner가 플러그인별로 설치 허용·기본 설치·필수 지정)에도 있어서 Claude Code만의 차이가 아니기 때문입니다. Claude Code에서 나누는 방법은 챕터 7의 사내 공유 4단계 — skill 폴더 하나, 플러그인 zip, 플러그인 git, 마켓플레이스 — 에서 따로 다룹니다.
+> 4번 외부 연결. MCP는 Notion·Slack 같은 외부 서비스를 AI에 연결하는 표준입니다. 이제 대부분 도구가 MCP로 외부 연결을 붙입니다 — Cursor, ChatGPT, Claude 웹, Cowork 모두 MCP 커넥터를 씁니다. Cursor는 MCP에 더해 Slack·Teams·GitHub·Linear·Jira·Notion 연동을 공식 제공하고, Claude 웹은 커넥터 디렉터리에서 고르거나 목록에 없는 서버를 URL로 사용자 지정 커넥터로 추가합니다(Team·Enterprise는 Owner가 조직에 추가). Cowork는 claude.ai 계정에 켜 둔 커넥터·플러그인을 그대로 쓰고 Claude in Chrome과도 연동됩니다. Gemini는 40개 이상 앱을 연결하고요(대부분 미국·영어 기준). Claude Code도 MCP로 연결하고, Chrome을 직접 조작할 수 있습니다(Claude in Chrome 연동 — 탭 열기·클릭·입력·페이지 읽기). Chrome 연동은 Cowork에도 있어서 둘의 차이는 연결 설정이 남는 곳입니다. Cowork는 커넥터를 계정에 추가하고, Claude Code는 작업 폴더의 `.mcp.json` 파일에 적어 두니 폴더째 공유하면 동료도 같은 연결 목록을 받습니다. 승인과 로그인은 각자 합니다. 예전 표에 있던 GitHub·Slack 연동은 GitHub·Slack에서 @claude로 코딩 작업을 맡기는 개발자용 창구라 표에서 뺐습니다. 플러그인을 팀 단위로 나누는 기능 자체는 Cursor(Teams·Enterprise 요금제의 팀 마켓플레이스), ChatGPT(마켓플레이스 공유, 워크스페이스 관리자의 GitHub 마켓플레이스 동기화), Claude 웹·Cowork(조직 Owner가 플러그인별로 설치 허용·기본 설치·필수 지정)에도 있습니다. Claude Code에서 나누는 방법은 챕터 7의 사내 공유 4단계 — skill 폴더 하나, 플러그인 zip, 플러그인 git, 마켓플레이스 — 에서 다룹니다.
 >
 > 다음 한 장에서 Claude Code로 실제로 일하는 흐름을 네 단계로 보여드리겠습니다."
 
@@ -76,6 +78,8 @@
 - 표 하단 추가 작은 글씨: "※ AI 학습에 쓰이는지는 요금제·설정별". "어느 도구든 AI가 읽은 내용은 클라우드로 전송"은 2번 축 이름 아래 작은 글씨로 옮겨, 이 축의 차이가 수동 업로드 여부라는 점을 행 안에서 바로 읽게 함.
 - 쉬운 말 정리(2026-11): 칸마다 핵심 한 줄 + 짧은 보조 한 줄 이내. 핵심 용어 뜻풀이는 3번 축 Claude Code 칸(절차·자동 검사·보조 AI·기능 묶음)과 4번 축 이름 아래(MCP = 외부 서비스 연결 표준). 표에서 뺀 세부(Grok·Composer와 Premium 요금제, 규칙 4종·MCP·Agent SDK, ChatGPT Hook·Subagent가 되는 환경, GPTs→플러그인·Gems→Skills 전환, Cursor 연동 목록, 커넥터 추가 방식, 전송·학습 단서)는 위 발표 노트에 있음.
 - 4번 축 이름은 "외부 연결"만(2026-11 정확성 검토): 팀 단위 플러그인 공유는 Cursor·ChatGPT·Claude 웹·Cowork에도 있어, Claude Code 칸에만 "사내 공유 4단계"를 적으면 다른 도구엔 없는 것처럼 보임 → 표에서 빼고 7장에서 다룸. 4-1 표의 나머지는 이전 표기 유지(2026-11-18 발표자 결정 — 리드 결론 한 줄·'내 파일 다루는 법'·모델 칸 축약·✗ 제거 등 마지막 손질안은 되돌림).
+- Claude Code·Cowork 3·4번 칸(2026-11-18 발표자 요청): 두 열이 거의 같아 차이가 안 보여, 공식 문서로 확인한 차이(설정이 남는 곳)를 작은 글씨로 넣음 — Cowork "프로젝트 지침은 내 PC에만(공유 안 됨)"·"계정에 추가", Claude Code "작업 폴더에 파일로 저장, 폴더째 공유"·"연결 설정도 폴더째 공유(로그인은 각자)". Claude Code 4번 칸의 GitHub·Slack(개발자용 호출 창구)은 빼고, Chrome 연동은 Cowork에도 있어 두 열 모두 표기.
+- 근거(2026-11-18 추가): Cowork 프로젝트 "Projects live on your computer. They aren't synced to the cloud or shared with other people."(claude.com/docs/cowork/guide/projects) · Cowork는 "Customize"에서 관리하고 claude.ai 계정에 켜 둔 커넥터·skill·플러그인을 불러옴(claude.com/docs/cowork/overview) · 플러그인 설치 단위: Chat·Cowork는 계정, Claude Code는 컴퓨터의 사용자·프로젝트·로컬 범위(claude.com/docs/plugins/platform-support) · Chrome 연동은 브라우저 자동화(code.claude.com/docs/en/chrome) · GitHub Actions는 PR·이슈의 @claude로 코드 수정·커밋(code.claude.com/docs/en/github-actions) · Slack은 @Claude로 코딩 작업을 클라우드 세션에 맡김(code.claude.com/docs/en/slack) · Cursor 프로젝트 규칙 `.cursor/rules`, 프로젝트 MCP `.cursor/mcp.json`(cursor.com/docs).
 - 그림 없음.
 
 ---
