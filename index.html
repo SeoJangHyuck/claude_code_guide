@@ -3078,7 +3078,7 @@ html, body {
     <div class="chapter-divider">
       <div class="cd-num">Chapter 05</div>
       <div class="cd-title">.claude 폴더 구조</div>
-      <div class="cd-sub">7가지 요소를 한 자리에 — 우선순위는 CLAUDE.md → skills → rules.</div>
+      <div class="cd-sub">주요 7가지 요소 — 익힐 순서: CLAUDE.md → skills → rules.</div>
     </div>
     <div class="footer"><span>Ch. 5</span><span></span></div>
   </section>
@@ -3090,28 +3090,29 @@ html, body {
       <span>1 / 9</span>
     </div>
     <div class="content-slide">
-      <div class="headline">.claude 폴더 = Claude Code의 작업 공간</div>
-      <div class="lead">7가지 요소가 모인다. 우선순위는 ① CLAUDE.md → ② skills → ③ rules (메인 3종).</div>
+      <div class="headline">.claude 폴더 = Claude Code의 설정 보관함</div>
+      <div class="lead">7가지 요소 중 먼저 익힐 것은 ①②③. 나머지는 익숙해진 뒤에.</div>
 
-      <div class="folder-tree">프로젝트/
+      <div class="folder-tree">내 작업 폴더/  <span class="desc">(VS Code에서 연 폴더)</span>
 ├── .claude/
-│   ├── <span class="priority">CLAUDE.md</span>                   <span class="num">①</span> <span class="desc">프로젝트 헌법 (항상 자동 로드)</span>
-│   ├── <span class="priority">skills/</span>                     <span class="num">②</span> <span class="desc">재사용 가능한 절차서</span>
+│   ├── <span class="priority">CLAUDE.md</span>                   <span class="num">①</span> <span class="desc">작업 폴더의 헌법 (매번 자동으로 읽힘)</span>
+│   ├── <span class="priority">skills/</span>                     <span class="num">②</span> <span class="desc">반복 작업 절차서 (필요할 때 꺼내 씀)</span>
 │   │   └── 내-skill-이름/
 │   │       └── SKILL.md
-│   ├── <span class="priority">rules/</span>                      <span class="num">③</span> <span class="desc">경로별 조건 규칙</span>
+│   ├── <span class="priority">rules/</span>                      <span class="num">③</span> <span class="desc">주제·폴더별 규칙</span>
 │   │   └── 내-rule-이름.md
-│   ├── <span class="secondary">settings.json</span>               <span class="num">④</span> <span class="desc">권한·환경·hooks 설정</span>
-│   ├── <span class="secondary">settings.local.json</span>         <span class="desc">(개인용, gitignored)</span>
-│   ├── <span class="secondary">agents/</span>                     <span class="num">⑤</span> <span class="desc">격리된 작업자</span>
-│   │   └── 내-agent-이름.md
-│   └── <span class="secondary">.claude-plugin/</span>             <span class="num">⑦</span> <span class="desc">위 ②~⑥을 묶은 패키지</span>
-│       └── plugin.json
-├── <span class="secondary">.mcp.json</span>                       <span class="num">⑥</span> <span class="desc">외부 시스템 연결 (프로젝트 루트)</span>
-└── (그 외 일반 프로젝트 파일)</div>
+│   ├── <span class="secondary">settings.json</span>               <span class="num">④</span> <span class="desc">권한 설정 + hook(정해진 순간 자동 실행되는 동작)</span>
+│   ├── <span class="secondary">settings.local.json</span>         <span class="desc">(개인 설정 파일)</span>
+│   └── <span class="secondary">agents/</span>                     <span class="num">⑤</span> <span class="desc">subagent (보조 작업자)</span>
+│       └── 내-subagent-이름.md
+├── <span class="secondary">.mcp.json</span>                       <span class="num">⑥</span> <span class="desc">MCP (외부 서비스 연결)</span>
+├── <span class="secondary">my-plugin/</span>                      <span class="num">⑦</span> <span class="desc">plugin (나눠 줄 묶음 원본 — 이 자리에선 동작 안 함)</span>
+│   ├── .claude-plugin/plugin.json
+│   └── skills/ 등
+└── (엑셀·보고서 등 내 파일)</div>
 
       <div class="conclusion-line">
-        CLAUDE.md는 <span class="accent">./.claude/CLAUDE.md</span> 또는 <span class="accent">./CLAUDE.md</span> (루트) 둘 다 공식 지원. 이 폴더 통째로 git/zip 공유하면 동료가 동일 환경 즉시 사용.
+        <span class="accent">작업 폴더째</span> 공유(개인 설정 파일 제외) → 동료도 같은 설정
       </div>
     </div>
     <div class="footer"><span>Ch. 5</span><span></span></div>
@@ -3124,28 +3125,26 @@ html, body {
       <span>2 / 9</span>
     </div>
     <div class="content-slide">
-      <div class="headline">① CLAUDE.md — 프로젝트의 헌법</div>
-      <div class="lead">.claude/ 또는 루트에 두면 세션 시작 시 항상 자동 로드. 별도 호출 없음.</div>
+      <div class="headline">① CLAUDE.md — 작업 폴더의 헌법</div>
+      <div class="lead">대화를 시작할 때마다 자동으로 읽히는 지침. 따로 부를 필요 없음.</div>
 
       <div class="split-2">
         <div class="def-box">
           <span class="label">정의</span>
-          <h3>항상 적용되는 규칙·컨벤션</h3>
+          <h3>매번 알려 줄 내용을 적는 텍스트 파일</h3>
           <ul>
-            <li>위치: <b>.claude/CLAUDE.md</b> (또는 루트 ./CLAUDE.md) — 둘 다 공식 지원</li>
-            <li>로드: 세션 시작 시 <b>자동</b></li>
+            <li>위치: 작업 폴더 또는 그 안 <b>.claude/</b></li>
             <li>분량: 200줄 이하 권장</li>
-            <li>적합: 빌드·테스트 명령, 코딩·문서 컨벤션, 디렉토리 구조</li>
+            <li>내용: 글쓰기 규칙·폴더 설명·자주 쓰는 작업</li>
+            <li>강제 장치는 아님 — 꼭 막을 일은 hook·권한 설정으로</li>
           </ul>
         </div>
         <div class="code-block"><span class="cmt"># 우리 정책 연구 프로젝트 가이드</span>
 
-<span class="kw">## 글쓰기 컨벤션</span>
-- 보고서·브리핑은 "~다" 체로
-- 모든 인용은 파일 경로·줄번호로 출처 명시
+<span class="kw">## 글쓰기 규칙</span>
 - 추측 표현(예상된다 등) 금지 — 근거 출처 필수
 
-<span class="kw">## 디렉토리 구조</span>
+<span class="kw">## 폴더 구조</span>
 - reports/   : 정기 보고서·정책 브리핑 (.md)
 - data/      : 원본 엑셀·CSV·PDF
 - minutes/   : 회의록 (.md)
@@ -3158,7 +3157,7 @@ html, body {
 
       <div class="compare-box">
         <div class="ttl">분량 관리</div>
-        200줄 초과 시: 다단계 절차는 <b>skill</b>로, 폴더별 규칙은 <b>rules</b>로 분산
+        길어지면 절차는 <b>skill</b>로, 폴더별 규칙은 <b>rules</b>로 분리
       </div>
     </div>
     <div class="footer"><span>Ch. 5</span><span></span></div>
@@ -3171,26 +3170,24 @@ html, body {
       <span>3 / 9</span>
     </div>
     <div class="content-slide">
-      <div class="headline">② skills — 재사용 가능한 절차서</div>
-      <div class="lead">다단계 작업을 정의해두면 키워드 한 줄로 자동 호출. description이 자동 발동의 키.</div>
+      <div class="headline">② skills — 반복 작업 절차서</div>
+      <div class="lead">요청이 skill 설명과 맞으면 Claude가 알아서 꺼내 씀. 입력창 /이름으로도 가능.</div>
 
       <div class="split-2">
         <div class="def-box">
           <span class="label">정의</span>
-          <h3>필요할 때만 호출되는 절차</h3>
+          <h3>필요할 때만 꺼내 쓰는 절차</h3>
           <ul>
             <li>위치: <b>.claude/skills/&lt;이름&gt;/SKILL.md</b></li>
-            <li>로드: <b>필요 시</b> (자동 또는 수동)</li>
-            <li>적합: 다단계 절차, 외부 도구 호출, 반복 작업</li>
-            <li><b>description</b>이 자동 발동의 키 — "언제 쓰는지" 명확히</li>
+            <li>적합: 여러 단계 작업·반복 업무</li>
+            <li>맨 위 <b>description</b>(skill 설명)에 "언제 쓰는지" 명확히</li>
           </ul>
         </div>
         <div class="code-block"><span class="cmt">---</span>
 <span class="key">name:</span> <span class="str">weekly-policy-digest</span>
 <span class="key">description:</span> 매주 정책기관 4곳의 신규 자료를
   수집·요약해 다이제스트로 만든다.
-  "주간 동향" 요청 시 발동.
-<span class="key">allowed-tools:</span> Bash, Read, Write, WebFetch
+  "주간 동향" 요청 시 사용.
 <span class="cmt">---</span>
 
 <span class="kw">## 절차</span>
@@ -3201,8 +3198,7 @@ html, body {
 
       <div class="compare-box">
         <div class="ttl">CLAUDE.md vs skills</div>
-        <b>CLAUDE.md</b>는 항상 적용되는 헌법, <b>skill</b>은 필요할 때만 호출되는 절차서.
-        매번 적용할 게 아니라면 skill로 분리.
+        <b>CLAUDE.md</b>는 매번 읽힘, <b>skill</b>은 필요할 때만. 매번 필요하지 않은 내용은 skill로.
       </div>
     </div>
     <div class="footer"><span>Ch. 5</span><span></span></div>
@@ -3215,39 +3211,38 @@ html, body {
       <span>4 / 9</span>
     </div>
     <div class="content-slide">
-      <div class="headline">③ rules — 경로별 조건 규칙</div>
-      <div class="lead">paths 글로브에 매칭되는 파일을 다룰 때만 자동 로드. CLAUDE.md의 컨텍스트 분산.</div>
+      <div class="headline">③ rules — 주제·폴더별 규칙</div>
+      <div class="lead">지정한 폴더·파일을 다룰 때만 읽힘 (지정 안 하면 매번).</div>
 
       <div class="split-2">
         <div class="def-box">
           <span class="label">정의</span>
-          <h3>특정 폴더·파일에만 적용</h3>
+          <h3>CLAUDE.md를 영역별로 나눈 파일</h3>
           <ul>
             <li>위치: <b>.claude/rules/&lt;이름&gt;.md</b></li>
-            <li>로드: <b>paths 글로브 매칭</b> 시 자동</li>
-            <li>적합: 보고서·코드 등 영역별 형식·톤 규칙</li>
-            <li>CLAUDE.md 비대화 방지 — 영역별 분리</li>
+            <li><b>paths</b>(맨 위 설정)에 폴더·파일 지정</li>
+            <li>예: 보고서 폴더 전용 문체 규칙</li>
           </ul>
-          <div class="info-note">출처: code.claude.com/docs/en/memory.md</div>
         </div>
-        <div class="code-block"><span class="cmt"># .claude/rules/reports.md</span>
-<span class="cmt">---</span>
+        <div>
+          <div class="info-note">파일: .claude/rules/report-style.md</div>
+          <div class="code-block"><span class="cmt">---</span>
 <span class="key">paths:</span>
   - <span class="str">"reports/**/*.md"</span>
 <span class="cmt">---</span>
 
 <span class="kw">## 보고서 작성 규칙</span>
-(reports/ 폴더의 .md 파일 작업 시 자동 로드)
 
 - 항상 "~다" 체로 작성
 - 모든 인용에 파일 경로 + 줄번호 명시
 - 분량 2장 이내
 - "결론" 섹션 필수</div>
+        </div>
       </div>
 
       <div class="compare-box">
         <div class="ttl">CLAUDE.md vs rules</div>
-        <b>CLAUDE.md</b>는 프로젝트 전체·매 세션 자동 로드. <b>rules</b>는 paths 매칭 시에만 로드 — 컨텍스트 절감.
+        <b>CLAUDE.md</b>는 매번, <b>rules</b>는 지정한 파일을 다룰 때만 읽힘 → Claude가 읽는 양 절약.
       </div>
     </div>
     <div class="footer"><span>Ch. 5</span><span></span></div>
@@ -3260,36 +3255,31 @@ html, body {
       <span>5 / 9</span>
     </div>
     <div class="content-slide">
-      <div class="headline">④ settings.json + hooks — 안전장치</div>
-      <div class="lead">권한 자동 승인·차단 + 도구 실행 전후 자동 트리거. 한 번 설정해두면 신경 쓰지 않아도 되는 가드레일.</div>
+      <div class="headline">④ settings.json + hooks — 권한 설정·자동 실행</div>
+      <div class="lead">자주 하는 실수를 1차로 거르는 설정.</div>
 
       <div class="split-2">
         <div class="def-box">
           <span class="label">정의</span>
-          <h3>권한 + 자동 트리거</h3>
+          <h3>권한 설정 + hook</h3>
           <ul>
             <li>위치: <b>.claude/settings.json</b></li>
-            <li><b>permissions</b>: 도구별 자동 승인·차단</li>
-            <li><b>hooks</b>: 도구 실행 전·후 자동 실행 (SessionStart · PreToolUse · PostToolUse · Stop)</li>
-            <li>비개발자 의미: 위험한 명령 차단 + 정리 작업 자동화</li>
+            <li><b>권한 설정</b>(허용·금지 목록): allow = 묻지 않고 허용, deny = 금지</li>
+            <li><b>hook</b>: 정해진 순간 자동 실행되는 동작</li>
           </ul>
         </div>
-        <div class="code-block">{
-  <span class="key">"permissions"</span>: {
-    <span class="key">"allow"</span>: [<span class="str">"Read(./**)"</span>, <span class="str">"Write(./drafts/**)"</span>],
-    <span class="key">"deny"</span>:  [<span class="str">"Read(./.env)"</span>, <span class="str">"Bash(rm -rf *)"</span>]
-  },
-  <span class="key">"hooks"</span>: {
-    <span class="key">"PostToolUse"</span>: [{
-      <span class="cmt">// 메일 초안 저장 직후 자동 검증 (대외비 단어 차단)</span>
-      <span class="key">"matcher"</span>: <span class="str">"Write"</span>,
-      <span class="key">"hooks"</span>: [{
-        <span class="key">"type"</span>: <span class="str">"command"</span>,
-        <span class="key">"command"</span>: <span class="str">"bash demo_assets/thursday_mail/verify_mail.sh"</span>
-      }]
-    }]
-  }
-}</div>
+        <div>
+          <div class="def-box">
+            <span class="label">예시</span>
+            <h3>settings.json에 적은 것 (요약)</h3>
+            <ul>
+              <li><b>허용</b>: 부산시 사이트 읽기 · reports 폴더 수정</li>
+              <li><b>금지</b>: 비밀 설정 파일(.env) 읽기 · 파일 삭제 명령</li>
+              <li><b>자동 실행</b>: 파일을 쓰거나 고친 직후 → 출처 표기 검사</li>
+            </ul>
+          </div>
+          <div class="info-note">실제 파일: 실습 폴더 examples/chapter5/.claude/settings.json</div>
+        </div>
       </div>
     </div>
     <div class="footer"><span>Ch. 5</span><span></span></div>
@@ -3302,25 +3292,22 @@ html, body {
       <span>6 / 9</span>
     </div>
     <div class="content-slide">
-      <div class="headline">⑤ agents — 격리된 작업자</div>
-      <div class="lead">별도 컨텍스트에서 작업하다 결과만 요약 반환. 큰 탐색·병렬 처리에 적합.</div>
+      <div class="headline">⑤ agents/ — subagent (보조 작업자)</div>
+      <div class="lead">별도 공간에서 일하고 결과 요약만 돌려줌. 많은 자료 훑기·동시 처리에 적합.</div>
 
       <div class="split-2">
         <div class="def-box">
           <span class="label">정의</span>
-          <h3>독립 컨텍스트 작업자</h3>
+          <h3>독립된 보조 작업자</h3>
           <ul>
             <li>위치: <b>.claude/agents/&lt;이름&gt;.md</b></li>
-            <li>실행: <b>별도 컨텍스트</b>에서 독립</li>
-            <li>적합: 큰 탐색 / 병렬 처리 / 메인 대화 보호</li>
-            <li>예: 4개 사이트 동시 크롤링, 5명 담당자 메일 동시 작성</li>
+            <li>내 대화가 길어지지 않음</li>
+            <li>예: 기관 사이트 4곳 동시 수집</li>
           </ul>
         </div>
         <div class="code-block"><span class="cmt">---</span>
 <span class="key">name:</span> <span class="str">site-crawler</span>
 <span class="key">description:</span> 한 사이트의 자료 목록을 수집·요약한다.
-<span class="key">tools:</span> WebFetch, Read, Write
-<span class="key">model:</span> sonnet
 <span class="cmt">---</span>
 
 당신은 정책기관 사이트 수집 전문가입니다.
@@ -3329,8 +3316,8 @@ html, body {
       </div>
 
       <div class="compare-box">
-        <div class="ttl">skill vs agent</div>
-        <b>skill</b> = 메인 대화에 합류, 결과 그대로 노출. <b>agent</b> = 별도 컨텍스트, 결과만 요약 반환 → 병렬·큰 탐색에 적합.
+        <div class="ttl">skill vs subagent</div>
+        <b>skill</b>은 기본적으로 지금 대화 안에서, <b>subagent</b>는 별도 공간에서 실행한 뒤 요약만 전달.
       </div>
     </div>
     <div class="footer"><span>Ch. 5</span><span></span></div>
@@ -3343,39 +3330,33 @@ html, body {
       <span>7 / 9</span>
     </div>
     <div class="content-slide">
-      <div class="headline">⑥ MCP 서버 — 외부 서비스 연결</div>
-      <div class="lead">Claude Code가 Slack·Notion·Google Drive·GitHub 같은 외부 서비스의 API를 직접 호출하게 해주는 표준 연결 규약. 한 번 등록해두면 Claude가 작업 맥락을 보고 알아서 골라 호출한다.</div>
+      <div class="headline">⑥ MCP — 외부 서비스 연결</div>
+      <div class="lead">외부 서비스를 Claude가 직접 쓰게 해 주는 연결 표준.</div>
 
       <div class="split-2">
         <div class="def-box">
           <span class="label">정의</span>
-          <h3>Claude Code ↔ 외부 서비스 사이의 표준 어댑터</h3>
+          <h3>등록해 두면 Claude가 알아서 골라 씀</h3>
           <ul>
-            <li><b>MCP</b> = Model Context Protocol (Anthropic이 공개한 표준)</li>
-            <li><b>역할</b>: Claude가 외부 서비스 API를 직접 호출할 수 있도록 인증·요청·응답을 중간에서 처리</li>
-            <li><b>연결 대상</b>: 평소 업무에 쓰는 SaaS · DB — Slack · Notion · Google Drive · GitHub · Confluence · Figma · PostgreSQL 등</li>
-            <li><b>위치</b>: <code>.mcp.json</code> (프로젝트 루트, git 커밋 시 동료도 동일 연결)</li>
-            <li><b>자동 호출</b>: 등록된 MCP 중 Claude가 작업 맥락 보고 필요한 것만 호출 — 매번 지시할 필요 X</li>
+            <li>위치: 작업 폴더 바로 안 <b>.mcp.json</b></li>
+            <li>연결: 처음 한 번 승인 + 각자 로그인</li>
+            <li>예: Notion · Slack · Google Drive · GitHub</li>
           </ul>
         </div>
-        <div class="code-block"><span class="cmt"># ① 설정: 프로젝트 루트 .mcp.json에 등록</span>
+        <div class="code-block"><span class="cmt"># 등록: .mcp.json</span>
 {
   <span class="key">"mcpServers"</span>: {
     <span class="key">"notion"</span>: {
-      <span class="key">"command"</span>: <span class="str">"npx"</span>,
-      <span class="key">"args"</span>: [<span class="str">"-y"</span>, <span class="str">"@modelcontextprotocol/server-notion"</span>]
+      <span class="key">"type"</span>: <span class="str">"http"</span>,
+      <span class="key">"url"</span>: <span class="str">"https://mcp.notion.com/mcp"</span>
     }
   }
 }
 
-<span class="cmt"># ② 연결 확인: Claude Code 안에서</span>
-/mcp
-<span class="cmt">→ ✓ notion   connected (3 tools)</span>
-<span class="cmt">→ ✗ slack    failed — token missing</span>
+<span class="cmt"># 연결: 승인 → /mcp에서 Authenticate → 로그인</span>
 
-<span class="cmt"># ③ 자동 호출 (직접 부르지 않아도)</span>
-<span class="str">"이번 주 회의록 Notion에서 가져와 요약해줘"</span>
-<span class="cmt">→ Claude가 notion MCP를 알아서 골라 호출</span></div>
+<span class="cmt"># 사용: 말로 요청</span>
+<span class="str">"이번 주 회의록 Notion에서 가져와 요약해줘"</span></div>
       </div>
     </div>
     <div class="footer"><span>Ch. 5</span><span></span></div>
@@ -3388,34 +3369,27 @@ html, body {
       <span>8 / 9</span>
     </div>
     <div class="content-slide">
-      <div class="headline">⑦ plugins — 자산 묶음 패키지</div>
-      <div class="lead">②~⑥ 자산을 한 묶음으로 패키징해 한 줄 명령으로 동료에게 배포. 이 슬라이드는 <b>설치하는 쪽</b> 관점.</div>
+      <div class="headline">⑦ plugins — skill 등을 묶은 설치 꾸러미</div>
+      <div class="lead">skill·subagent·hook·MCP를 폴더 하나로 묶어 동료에게 배포. 여기서는 <b>설치하는 쪽</b>.</div>
 
       <div class="split-2">
         <div class="def-box">
           <span class="label">정의</span>
-          <h3>여러 자산의 배포 단위</h3>
+          <h3>동료에게 나눠 주는 단위</h3>
           <ul>
-            <li>위치: <b>.claude/.claude-plugin/plugin.json</b></li>
-            <li>묶을 수 있는 자산: skills · rules · agents · hooks · MCP · commands</li>
-            <li>배포: zip 파일 / git url / 마켓플레이스</li>
-            <li>설치: <b>/plugin install &lt;name&gt;</b> 한 줄</li>
+            <li>못 담는 것: rules·CLAUDE.md·권한 설정</li>
+            <li>배포: zip · git · 마켓플레이스(팀 플러그인 목록)</li>
+            <li>VS Code: 입력창 <b>/plugins</b> → 마켓플레이스 등록 → Install</li>
           </ul>
-          <div class="info-note">→ <b>직접 만드는 방법</b>은 챕터 7 사내공유 flow <b>2단계</b>에서 자세히 안내</div>
+          <div class="info-note">→ <b>직접 만들어 배포하는 방법</b>은 7장</div>
         </div>
-        <div class="code-block"><span class="cmt"># 동료가 만든 플러그인을 설치 (한 줄)</span>
-/plugin install research-team-plugin
-
-<span class="cmt"># 설치 후 .claude/.claude-plugin/plugin.json 예시</span>
+        <div class="code-block"><span class="cmt"># 만드는 쪽이 작성하는 이름표: .claude-plugin/plugin.json</span>
 {
   <span class="key">"name"</span>: <span class="str">"research-team-plugin"</span>,
   <span class="key">"version"</span>: <span class="str">"1.0.0"</span>,
   <span class="key">"description"</span>: <span class="str">"정책 연구원 업무 자동화 묶음"</span>,
   <span class="key">"author"</span>: { <span class="key">"name"</span>: <span class="str">"BDI 데이터팀"</span> }
-}
-
-<span class="cmt"># 만드는 쪽 (plugin.json 작성·zip·git·marketplace)</span>
-<span class="cmt"># → 다음 챕터 7 사내공유 flow 2단계에서 다룸</span></div>
+}</div>
       </div>
     </div>
     <div class="footer"><span>Ch. 5</span><span></span></div>
@@ -3429,55 +3403,57 @@ html, body {
     </div>
     <div class="content-slide">
       <div class="headline">"이걸 만들 때 어디에 넣지?"</div>
-      <div class="lead">자동화·재사용하고 싶은 게 떠오르면 이 트리를 따라 내려가면 위치가 정해진다.</div>
+      <div class="lead">위에서부터 차례로 — 처음 YES가 나오는 곳에 넣는다.</div>
 
       <div class="decision-tree">
         <div class="dt-start">자동화·재사용하고 싶다</div>
         <div class="dt-arrow"></div>
 
         <div class="dt-row">
-          <div class="dt-q">항상 자동 적용되어야 하는가?</div>
+          <div class="dt-q">Claude 판단과 상관없이 꼭 돌릴 검사·막을 일?</div>
+          <div class="dt-yes">YES →</div>
+          <div class="dt-result">hook·권한 설정</div>
+        </div>
+        <div class="dt-arrow"></div>
+
+        <div class="dt-row">
+          <div class="dt-q">매번 Claude가 알아야 할 지침?</div>
           <div class="dt-yes">YES →</div>
           <div class="dt-result">CLAUDE.md</div>
         </div>
         <div class="dt-arrow"></div>
 
         <div class="dt-row">
-          <div class="dt-q">특정 폴더·파일에서만 적용?</div>
+          <div class="dt-q">특정 폴더·파일에만 적용?</div>
           <div class="dt-yes">YES →</div>
           <div class="dt-result">rules</div>
         </div>
         <div class="dt-arrow"></div>
 
         <div class="dt-row">
-          <div class="dt-q">반복 태스크 · 워크플로우 재사용?</div>
+          <div class="dt-q">반복 절차 · 가끔 쓰는 참고 자료?</div>
           <div class="dt-yes">YES →</div>
           <div class="dt-result">skill</div>
         </div>
         <div class="dt-arrow"></div>
 
         <div class="dt-row">
-          <div class="dt-q">큰 탐색 / 병렬 / 메인 대화 보호?</div>
+          <div class="dt-q">많은 자료 훑기 · 동시 처리?</div>
           <div class="dt-yes">YES →</div>
-          <div class="dt-result">agent</div>
+          <div class="dt-result">subagent</div>
         </div>
         <div class="dt-arrow"></div>
 
         <div class="dt-row">
-          <div class="dt-q">도구 실행 전·후 자동 트리거?</div>
+          <div class="dt-q">외부 서비스 연결?</div>
           <div class="dt-yes">YES →</div>
-          <div class="dt-result">hook (settings.json)</div>
+          <div class="dt-result">MCP</div>
         </div>
         <div class="dt-arrow"></div>
-
-        <div class="dt-row">
-          <div class="dt-q">외부 시스템 연결?</div>
-          <div class="dt-yes">YES →</div>
-          <div class="dt-result">MCP 서버</div>
-        </div>
+        <div class="dt-start">해당 없음 → 대화로 요청 (반복되면 skill로)</div>
 
         <div class="dt-plugin-note">
-          ※ 위 자산들을 한 묶음으로 배포 → <b>plugin</b>
+          ※ 묶어서 나눠 줄 땐 <b>plugin</b> — 단, CLAUDE.md·rules는 작업 폴더째 공유(개인 설정 파일 제외)
         </div>
       </div>
     </div>
@@ -3486,7 +3462,7 @@ html, body {
 
   <!-- ============================================ -->
   <!-- 챕터 6. 시연 — A주임의 1주일 (11슬라이드 / 22분) -->
-  <!-- BEFORE 슬라이드 = 페인포인트 15초 / AFTER = 타이틀 + VSCode 즉시 전환 -->
+  <!-- BEFORE 슬라이드 = 페인포인트 15초 / AFTER = 타이틀 + VS Code 즉시 전환 -->
   <!-- ============================================ -->
 
   <!-- ============================================ -->
