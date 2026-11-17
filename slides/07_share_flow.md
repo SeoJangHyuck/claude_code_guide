@@ -114,13 +114,13 @@ skill 형식 (이전 슬라이드 하단 "핵심 형식"):
 
 ## 슬라이드 7-2 — 2단계: 플러그인 zip 공유 (1분 30초, git 불필요)
 
-**핵심 메시지**: "여러 skill 등을 plugin(설치 꾸러미) 하나로 묶어 zip으로 보낸다. 받는 사람은 풀어서 사용자 폴더의 .claude/skills/ 아래에 넣으면 다음 대화부터 내 모든 작업 폴더에서 쓴다(1단계는 그 작업 폴더에서만)."
+**핵심 메시지**: "여러 skill에 hook·보조 작업자까지 plugin(설치 꾸러미) 하나로 묶어 zip으로 보낸다. 같은 skills 폴더에 넣어도 이름표(plugin.json)가 있어 플러그인으로 읽힌다. 받는 사람은 풀어서 사용자 폴더의 .claude/skills/ 아래에 넣으면 다음 대화부터 내 모든 작업 폴더에서 쓴다(1단계는 그 작업 폴더에서만)."
 
 **본문 콘텐츠** (슬라이드와 같은 내용):
 
 ```
 2단계 — 플러그인 zip 공유
-여러 skill 등을 plugin(설치 꾸러미) 하나로 묶어 zip 파일로 전달.
+여러 skill에 hook·보조 작업자까지 plugin(설치 꾸러미) 하나로 묶어 zip으로 전달.
 
   ───────────────────────────────────────────
 
@@ -133,11 +133,12 @@ skill 형식 (이전 슬라이드 하단 "핵심 형식"):
   동료:
     압축을 풀어 사용자 폴더의 .claude/skills/ 아래로 폴더째 이동
     → 다음 대화부터 내 모든 작업 폴더에서 사용
+    → 폴더 안 이름표(plugin.json)를 보고 플러그인으로 인식
 
   ───────────────────────────────────────────
 
   적합 규모 : 3~5명
-  장점      : 여러 개를 한 번에 설치
+  장점      : 여러 개를 한 번에 설치 · 이름 충돌 없음
   단점      : 고칠 때마다 zip 다시 전달
 
   📖 폴더 구조·흔한 실수: 플러그인 만들기 가이드
@@ -206,12 +207,15 @@ skill 형식 (이전 슬라이드 하단 "핵심 형식"):
 **발표 노트 (1분 30초)**:
 > "2단계, 플러그인 zip 공유입니다. 1단계가 skill 하나였다면 여기는 묶음이에요. 플러그인은 skill·subagent(보조 작업자)·hook을 한 번에 설치하도록 묶은 꾸러미입니다. 그리고 1단계와 달리 받는 쪽이 사용자 폴더에 넣기 때문에, 그 작업 폴더 하나가 아니라 내 모든 작업 폴더에서 쓰입니다.
 >
+> 그럼 1단계와 뭐가 다르냐 — 같은 skills 폴더에 들어가도 Claude Code는 폴더 안 이름표, `.claude-plugin/plugin.json`을 보고 플러그인으로 읽습니다. 그래서 skill 여러 개에 hook·보조 작업자·외부 서비스 연결까지 한 번에 들어오고, 플러그인 안 skill은 `/플러그인이름:skill이름`으로 불려 동료가 이미 가진 같은 이름 skill과 겹치지 않습니다. 묶음 단위로 켜고 끌 수도 있고요. 참고로 '그 작업 폴더에서만'과 '내 모든 작업 폴더에서'는 넣는 위치를 그렇게 골랐기 때문입니다. skill 하나도 사용자 폴더에 넣으면 모든 작업 폴더에서 쓰이고, 플러그인도 작업 폴더의 `.claude/skills/`에 둘 수 있습니다(그때는 폴더 신뢰 수락 필요).
+>
 > 만드는 분은 5장에서 본 ⑦번 구조대로 폴더를 만들면 됩니다. `.claude-plugin` 폴더 안에는 `plugin.json` 하나만 두고 — 동료가 `~/.claude/skills/`에 넣어 쓰려면 이 파일이 꼭 있어야 합니다 — `skills`·`agents`·`hooks` 폴더는 그 옆, 플러그인 루트에 둡니다. 이 폴더들을 `.claude-plugin/` 안에 넣는 게 흔한 실수인데, 그러면 로드가 안 됩니다. `plugin.json`의 `name`이 불러 쓸 때 앞에 붙는 이름이 되고요. 다 만들면 압축해서 메신저로 보냅니다. 보내기 전에 `claude --plugin-dir`로 시험해 볼 수 있는데, `claude`로 시작하는 건 터미널 명령이라 VS Code 확장만 있으면 CLI를 따로 설치하셔야 합니다. 확장에서는 입력창 `/plugins`로 플러그인을 관리하고요.
 >
 > 받는 분은 zip을 풀어 그 폴더째 내 사용자 폴더의 `.claude/skills` 아래로 옮기면 끝이에요. Mac은 `~/.claude/skills` — Finder에선 `.claude`가 숨김 폴더라 ⌘⇧G를 누르고 경로를 입력해 이동하시고, Windows는 `C:\Users\<이름>\.claude\skills\`고요. skills 폴더가 아직 없으면 새로 만드세요. 폴더 이름이 skills라서 헷갈리실 수 있는데, 플러그인도 이 폴더에 넣으면 됩니다. 주의할 점 하나 — 압축을 풀었을 때 같은 이름 폴더가 한 겹 더 생기면 `plugin.json`이 든 안쪽 폴더를 옮기셔야 합니다. 바깥 폴더를 옮기면 오류도 없이 인식이 안 돼요. 다음 대화부터 내 모든 작업 폴더에서 자동으로 읽히고, 지금 대화에 바로 쓰려면 `/reload-plugins`. 단점은 자동 업데이트가 없다는 것 — 고치면 zip을 다시 보내야 합니다. 그게 부담되면 다음 3단계로 갑니다."
 
 **시각 표현 메모**:
 - 좌측(당신): 만들기 2줄(5장 ⑦ 구조로 폴더 만들기 → zip 전달). 우측(동료): 받기 2줄(사용자 폴더 .claude/skills/ 아래로 이동 → 다음 대화부터 **내 모든 작업 폴더에서** 사용 — 굵게, 1단계 "그 작업 폴더에서만"과 대비).
+- 1단계와의 차이 보강(2026-11-18 발표자 요청): 리드에 묶음 내용(hook·보조 작업자), 동료 칸 셋째 줄 "폴더 안 이름표(plugin.json)를 보고 플러그인으로 인식", 장점에 "이름 충돌 없음"(플러그인 skill은 /플러그인이름:skill이름). 위치 차이(그 작업 폴더 ↔ 내 모든 작업 폴더)는 넣는 위치를 고른 결과일 뿐 본질은 묶음·이름표라는 점은 발표 노트로.
 - 적합 규모는 3~5명(3단계 6~10명과 겹치지 않게), "git 없이"는 태그 "git 불필요"와 겹쳐 뺌.
 - 폴더 트리·plugin.json·`--plugin-dir`·Windows 경로·`/reload-plugins`·네임스페이스·CLI 안내·흔한 실수는 슬라이드에서 빼고 위 "자세한 방법"으로 옮김. 슬라이드에는 📖 플러그인 만들기 가이드(흔한 실수 포함) 링크만.
 - 글이 줄어 2단계만 쓰던 촘촘한 레이아웃(compact)과 좌우 1.3:1 비율을 없애고 1·3·4단계와 같은 기본 레이아웃으로 맞춤.
@@ -225,6 +229,7 @@ skill 형식 (이전 슬라이드 하단 "핵심 형식"):
 - 로컬 테스트: `--plugin-dir` 플래그 (zip 압축 파일도 지원, v2.1.128+)
 - 받는 쪽: 플러그인 디렉토리를 `.claude-plugin/plugin.json`째 `~/.claude/skills/` 아래로 옮기면 세션 시작 때 로드("they move the plugin directory, with its `.claude-plugin/plugin.json`, under `~/.claude/skills/`" — 관리자가 skills 폴더 플러그인을 막아 두면 로드 안 됨). 지금 세션은 `/reload-plugins`, 한 세션만 쓰려면 `claude --plugin-dir <폴더 또는 .zip>`. https://code.claude.com/docs/en/plugins/publish#share-a-plugin-without-a-marketplace
 - "내 모든 작업 폴더에서 사용": 개인 skills 폴더 `~/.claude/skills/`는 이 컴퓨터의 모든 프로젝트가 함께 씀("which all your projects on this machine share"). https://code.claude.com/docs/en/plugins/create
+- skill 폴더를 플러그인으로: 개인·프로젝트 skill 폴더에 `.claude-plugin/plugin.json`을 넣으면 `<이름>@skills-dir` 플러그인으로 로드되고 그 안의 agents·hooks·MCP 서버도 함께 쓰임("add a `.claude-plugin/plugin.json` to a personal or project skill folder and Claude Code can load it as a plugin named `<name>@skills-dir` with its own agents, hooks, and MCP servers" — 프로젝트의 `.claude/skills/`에서는 폴더 신뢰 수락이 먼저 필요). 같은 이름 skill과는 "Both load, because plugin skills are namespaced as `/plugin-name:skill-name`". 켜고 끄기는 설정 파일의 `"<name>@skills-dir": true/false`. https://code.claude.com/docs/en/skills · https://code.claude.com/docs/en/plugins/loading
 - "다음 대화부터": skills 폴더 플러그인은 세션 시작 때 로드("loads each one when a session starts, with no flag and no install step"), 지금 세션은 `/reload-plugins`. 폴더 이름이 skills여도 `.claude-plugin/plugin.json`이 든 폴더는 플러그인으로 로드("a folder there that contains a `.claude-plugin/plugin.json` is a skills-directory plugin"). https://code.claude.com/docs/en/plugins/create
 - 같은 이름 폴더가 한 겹 더 생기는 경우: Windows 기본 압축 풀기는 zip 이름으로 폴더를 만들어 그 안에 풀기 때문에, zip 안에 `my-plugin/`이 들어 있으면 `my-plugin\my-plugin\`이 됨(0장 bdi_demo 안내와 같은 현상). 바깥 폴더를 옮기면 `~/.claude/skills/my-plugin/my-plugin/.claude-plugin/plugin.json`이 되어 skills 폴더 바로 아래에 매니페스트가 없으므로 플러그인으로 인식되지 않고 오류도 없음.
 - Windows에서 `~/.claude`는 `%USERPROFILE%\.claude` (예: `C:\Users\이름\.claude\skills\`). 원문: "On Windows, `~/.claude` resolves to `%USERPROFILE%\.claude`." https://code.claude.com/docs/en/claude-directory · macOS Finder는 이름이 `.`으로 시작하는 폴더를 기본으로 숨기므로 ⌘⇧G(폴더로 이동)에 경로를 입력해 이동.
