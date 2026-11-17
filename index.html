@@ -3631,7 +3631,7 @@ html, body {
     <div class="chapter-divider">
       <div class="cd-num">Chapter 06</div>
       <div class="cd-title">시연 — A주임의 오늘</div>
-      <div class="cd-sub">하나의 작업, 4개 기능이 순서대로 켜진다 — 라이브 시연 + VSCode 화면.</div>
+      <div class="cd-sub">하나의 작업, 4개 기능이 각자 시점에 켜진다.</div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
@@ -3646,33 +3646,33 @@ html, body {
       <div class="di-eyebrow">Demo · 지금부터 시연</div>
       <div class="di-title">
         하나의 작업,<br>
-        <span class="accent">4개 기능이 순서대로</span> 켜집니다.
+        <span class="accent">4개 기능이 각자 시점에</span> 켜집니다.
       </div>
       <div class="di-sub">
-        BDI 정책 연구원 <b>A주임</b>(가상 인물)의 오늘 작업 한 건 —<br>
+        BDI 정책 연구원 <b>A주임</b>(가상 인물)의 오늘 할 일 —<br>
         부산 16개 구·군 인구 데이터 → 임원 보고용 PPT.
       </div>
       <div class="feature-order">
-        <span class="fo-item">① CLAUDE.md</span>
+        <span class="fo-item">CLAUDE.md</span>
         <span class="fo-arrow">→</span>
-        <span class="fo-item">② rule</span>
+        <span class="fo-item">rule</span>
         <span class="fo-arrow">→</span>
-        <span class="fo-item">③ skill</span>
+        <span class="fo-item">skill</span>
         <span class="fo-arrow">→</span>
-        <span class="fo-item">④ hook</span>
+        <span class="fo-item">hook</span>
       </div>
       <div class="persona-pair">
         <div class="pp-box">
           <div class="pp-label">평소</div>
-          <div class="pp-content">엑셀 16개 열고, 피벗 만들고, 차트 복사해서 PPT에 붙이고, 디자인 톤 맞추기. <b>데이터 바뀌면 처음부터.</b></div>
+          <div class="pp-content">엑셀 16개 열고, 차트 만들어 PPT에 붙이기. <b>데이터 바뀌면 처음부터.</b></div>
         </div>
         <div class="pp-box">
           <div class="pp-label">오늘</div>
-          <div class="pp-content">한 줄 호출 → <b>CLAUDE.md → rule → skill → hook</b> 4개 기능이 순서대로 발동.</div>
+          <div class="pp-content">한 줄 요청 → 분석·PPT·형식 점검까지 자동. <b>데이터 바뀌어도 같은 한 줄.</b></div>
         </div>
       </div>
       <div class="di-promise">
-        시연은 전부 <b>VSCode + Claude Code 확장</b>에서 진행 — 터미널 노출 없음.
+        시연은 전부 <b>VS Code + Claude Code 확장</b>에서 — 터미널 없이 진행.
       </div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
@@ -3692,236 +3692,232 @@ html, body {
       <div class="pain-point">
         <div class="pp-headline">평소 작업 절차</div>
         <ul class="pp-list">
-          <li>구·군별 엑셀 파일 16개 순서대로 열기</li>
-          <li>각 파일에서 수치 복사 → 비교 시트에 붙이기</li>
-          <li>피벗 테이블 → 차트 생성</li>
-          <li>차트 한 장씩 PPT에 복사-붙여넣기</li>
-          <li>임원 보고용 디자인 톤 맞추기</li>
+          <li>구·군별 엑셀 16개 하나씩 열기</li>
+          <li>수치 복사 → 비교 시트에 붙이기</li>
+          <li>피벗 테이블 → 차트 만들기</li>
+          <li>차트를 한 장씩 PPT에 붙이기</li>
+          <li>보고용 디자인 맞추기</li>
         </ul>
-        <div class="pp-time">🔁 데이터 업데이트되면 — 처음부터 반복</div>
+        <div class="pp-time">🔁 업데이트마다 같은 작업 반복</div>
       </div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
 
   <!-- Slide 6-2: AFTER ① CLAUDE.md -->
-  <section class="slide" data-chapter="6" data-title="AFTER ① CLAUDE.md">
+  <section class="slide" data-chapter="6" data-title="AFTER · CLAUDE.md">
     <div class="top-bar">
-      <span>Chapter 6 — AFTER · ① CLAUDE.md</span>
+      <span>Chapter 6 — AFTER · CLAUDE.md</span>
       <span>3 / 11</span>
     </div>
     <div class="content-slide">
-      <div class="day-label after"><span class="step-chip"><span class="step-num">①</span> <span class="step-name">CLAUDE.md</span></span> <span class="stage">프로젝트 헌법</span></div>
-      <div class="headline">입력 없이도 톤·출처가 자동 적용</div>
-      <div class="lead">프로젝트 어디서 뭘 작업해도 — Claude가 이미 알고 있다.</div>
+      <div class="day-label after"><span class="step-chip"><span class="step-name">CLAUDE.md</span></span> <span class="stage">작업 폴더 헌법</span></div>
+      <div class="headline">톤·출처 규칙을 대화마다 자동으로 읽는다</div>
+      <div class="lead">따로 지시하지 않아도 — Claude가 이미 알고 있다.</div>
 
       <div class="workflow-card">
         <ul class="wf-list">
-          <li><b>.claude/CLAUDE.md</b><span class="sub">언어: 한국어 · 문체: ~다 체 · 수치 인용 시 (출처: 파일명) 필수 · 보고서 구조: 요약 → 현황 → 시사점</span></li>
-          <li><b>"현황을 한 줄로 요약해줘"</b> 한 줄 입력만으로 — 응답에 <b>(출처: 파일명)</b>이 지시 없이 자동으로 붙음</li>
-          <li>별도 지시 없어도 모든 작업에 자동 적용</li>
+          <li><b>.claude/CLAUDE.md</b><span class="sub">한국어 · ~다 체 · 수치엔 (출처: 파일명) · 요약 → 현황 → 시사점</span></li>
+          <li><b>"현황을 한 줄로 요약해줘"</b>만 입력 → 답에 <b>(출처: 파일명)</b>이 자동으로 붙음</li>
+          <li>강제 장치는 아님 — 반드시 지킬 규칙은 hook·권한 설정으로</li>
         </ul>
       </div>
 
-      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — VSCode + Claude Code 확장</div>
+      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — 한 줄 질문에 출처가 붙는지 확인</div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
 
   <!-- Slide 6-3: AFTER ② rule -->
-  <section class="slide" data-chapter="6" data-title="AFTER ② rule">
+  <section class="slide" data-chapter="6" data-title="AFTER · rule">
     <div class="top-bar">
-      <span>Chapter 6 — AFTER · ② rule</span>
+      <span>Chapter 6 — AFTER · rule</span>
       <span>4 / 11</span>
     </div>
     <div class="content-slide">
-      <div class="day-label after"><span class="step-chip"><span class="step-num">②</span> <span class="step-name">rule</span></span> <span class="stage">경로 기반 규칙</span></div>
-      <div class="headline">reports/ 폴더 작업할 때만 자동 발동</div>
+      <div class="day-label after"><span class="step-chip"><span class="step-name">rule</span></span> <span class="stage">특정 폴더 전용 규칙</span></div>
+      <div class="headline">reports/ 폴더 파일을 다룰 때만 켜진다</div>
       <div class="lead">CLAUDE.md가 "항상", rule은 "특정 자리에서만".</div>
 
       <div class="workflow-card">
         <ul class="wf-list">
-          <li><b>.claude/rules/reports.md</b> 상단 한 줄: <b>paths: "reports/**"</b><span class="sub">슬라이드 수 최대 5장 · 수치는 전년 대비 변화율 함께 표기 · 결론 슬라이드 필수</span></li>
-          <li>reports/ 폴더 <b>밖</b> → 규칙 비발동</li>
-          <li>reports/ 폴더 <b>안</b> → 규칙 자동 발동</li>
+          <li><b>.claude/rules/reports.md</b> 맨 위 설정: <b>적용 폴더 reports/</b><span class="sub">최대 5장 · 전년 대비 변화율 표기 · 결론 슬라이드 필수</span></li>
+          <li>reports/ <b>밖</b> 파일만 다룰 때 → 꺼진 상태</li>
+          <li>reports/ <b>안</b> 파일을 읽거나 쓰거나 고칠 때 → 자동으로 켜짐</li>
         </ul>
       </div>
 
-      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — paths 매칭 안팎 대비</div>
+      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — reports/ 안팎 비교</div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
 
   <!-- Slide 6-4: AFTER ③ skill -->
-  <section class="slide" data-chapter="6" data-title="AFTER ③ skill">
+  <section class="slide" data-chapter="6" data-title="AFTER · skill">
     <div class="top-bar">
-      <span>Chapter 6 — AFTER · ③ skill</span>
+      <span>Chapter 6 — AFTER · skill</span>
       <span>5 / 11</span>
     </div>
     <div class="content-slide">
-      <div class="day-label after"><span class="step-chip"><span class="step-num">③</span> <span class="step-name">skill</span></span> <span class="stage">한 줄 호출 → 자동 생성</span></div>
-      <div class="headline">한 줄 입력 → subagent 16개 병렬 → BDI 디자인 PPT</div>
-      <div class="lead">Claude가 description 보고 skill을 자동으로 선택한다.</div>
+      <div class="day-label after"><span class="step-chip"><span class="step-name">skill</span></span> <span class="stage">재사용 절차서</span></div>
+      <div class="headline">한 줄 요청 → 16개 파일 동시 분석 → BDI 디자인 PPT</div>
+      <div class="lead">Claude가 skill의 설명(description)을 보고 알아서 꺼내 쓴다.</div>
 
       <div class="workflow-card">
         <ul class="wf-list">
-          <li><b>.claude/skills/busan-population-report/SKILL.md</b><span class="sub">description: "부산 구/군 인구 데이터로 BDI 디자인 PPT 보고서 생성"</span></li>
-          <li>"부산 인구 현황 보고서 만들어줘" 한 줄 → <b>skill 자동 선택</b></li>
-          <li><b>Task subagent 16개 병렬</b> — 한 응답에서 16개 동시 발사, 각자 xlsx 1개 분석</li>
-          <li><b>bdi_slides 라이브러리</b> 호출로 부산연구원 브랜드 디자인 5장 조립</li>
-          <li>결과 저장 → <b>reports/부산_인구현황.pptx</b></li>
+          <li><b>.claude/skills/busan-population-report/SKILL.md</b><span class="sub">설명 요약: "부산 구/군 인구 데이터로 BDI 디자인 PPT 보고서 생성"</span></li>
+          <li><b>"부산 인구 현황 보고서 만들어줘"</b> 한 줄로 시작</li>
+          <li><b>subagent</b>(보조 작업자) 16개가 파일 1개씩 동시 분석</li>
+          <li><b>BDI 디자인 틀</b>로 5장 조립 → reports/에 저장</li>
         </ul>
       </div>
 
-      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — VSCode + Claude Code 확장</div>
+      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — 16개 동시 분석 진행</div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
 
   <!-- Slide 6-5: AFTER ③ skill 결과 확인 (BDI 5장) -->
-  <section class="slide" data-chapter="6" data-title="AFTER ③ skill 결과">
+  <section class="slide" data-chapter="6" data-title="AFTER · skill 결과">
     <div class="top-bar">
-      <span>Chapter 6 — AFTER · ③ skill 결과 확인</span>
+      <span>Chapter 6 — AFTER · skill 결과 확인</span>
       <span>6 / 11</span>
     </div>
     <div class="content-slide">
-      <div class="day-label after"><span class="step-chip"><span class="step-num">③</span> <span class="step-name">skill 결과</span></span> <span class="stage">5장 · DESIGN_GUIDE 준수</span></div>
-      <div class="headline">Cover + 본문 3장 + Closing — DESIGN_GUIDE 자동 적용</div>
-      <div class="lead">스킬 폴더 안 <b>DESIGN_GUIDE.md</b>(11종 AI 안티패턴 명시)에 따라 빌드 → <b>verify_design.py</b>가 9개 검사 항목으로 자동 점검.</div>
+      <div class="day-label after"><span class="step-chip"><span class="step-name">skill 결과</span></span> <span class="stage">5장 · 디자인 가이드 준수</span></div>
+      <div class="headline">5장 완성 — BDI 디자인 가이드대로</div>
+      <div class="lead">AI식 장식 11종을 뺀 디자인 — skill 속 프로그램이 틀을 고정, 8개 항목 자동 점검.</div>
 
       <div class="ppt-result">
         <div class="ppt-card cover">
           <div class="pc-num">SLIDE 1</div>
           <div class="pc-title">Cover</div>
-          <div class="pc-desc">다크 네이비 + BDI 로고 + 큰 타이틀 + 하단 인라인 메타</div>
+          <div class="pc-desc">진한 남색 배경 + 로고 + 큰 제목</div>
           <div class="pc-tag">표지</div>
         </div>
         <div class="ppt-card">
           <div class="pc-num">SLIDE 2</div>
           <div class="pc-title">주민등록인구 비교</div>
-          <div class="pc-desc">풀폭 막대차트, 헤더 스트립·차트 자체 타이틀 없음</div>
-          <div class="pc-tag">CLAUDE.md · UserPromptSubmit</div>
+          <div class="pc-desc">가로 꽉 찬 막대차트</div>
+          <div class="pc-tag">출처 표기</div>
         </div>
         <div class="ppt-card">
           <div class="pc-num">SLIDE 3</div>
           <div class="pc-title">순이동인구</div>
-          <div class="pc-desc">좌·우 데이터 표 (카드·이모지 X) · 색은 변화율에만</div>
-          <div class="pc-tag">rule (변화율)</div>
+          <div class="pc-desc">좌우 데이터 표 · 색은 증감에만</div>
+          <div class="pc-tag">변화율 표</div>
         </div>
         <div class="ppt-card">
           <div class="pc-num">SLIDE 4</div>
           <div class="pc-title">합계출산율 + 시사점</div>
-          <div class="pc-desc">좌 표 + 우 "—" 들여쓰기 리스트 (번호 grid X)</div>
-          <div class="pc-tag">rule (구성)</div>
+          <div class="pc-desc">왼쪽 출산율 표 + 오른쪽 목록</div>
+          <div class="pc-tag">시사점 목록</div>
         </div>
         <div class="ppt-card closing">
           <div class="pc-num">SLIDE 5</div>
           <div class="pc-title">Closing</div>
-          <div class="pc-desc">다크 + 큰 결론 + 인라인 통계 (KPI grid X)</div>
-          <div class="pc-tag">rule (결론 필수)</div>
+          <div class="pc-desc">진한 남색 배경 + 큰 결론 문장</div>
+          <div class="pc-tag">결론 장</div>
         </div>
       </div>
 
       <div class="auto-context">
-        <span class="ac-eyebrow">VERIFY_DESIGN.PY — 자동 출력</span>
-        📋 부산_인구현황.pptx  (5장, 127개 shape 검사)<br>
-        ✅ DESIGN_GUIDE 모든 검사 통과 — AI 안티패턴 없음
+        <span class="ac-eyebrow">디자인 자동 점검 결과(요약)</span>
+        📋 부산_16개구군_인구현황.pptx  (5장, 모든 도형 검사)<br>
+        ✅ 디자인 가이드 모든 검사 통과 — AI식 장식 없음
       </div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
 
   <!-- Slide 6-6: AFTER ④ hook — SessionStart -->
-  <section class="slide" data-chapter="6" data-title="AFTER ④ hook · SessionStart">
+  <section class="slide" data-chapter="6" data-title="AFTER · hook · SessionStart">
     <div class="top-bar">
-      <span>Chapter 6 — AFTER · ④ hook · SessionStart</span>
+      <span>Chapter 6 — AFTER · hook · SessionStart</span>
       <span>7 / 11</span>
     </div>
     <div class="content-slide">
-      <div class="day-label after"><span class="step-chip"><span class="step-num">④</span> <span class="step-name">hook · SessionStart</span></span> <span class="stage">시작 시점</span></div>
-      <div class="headline">세션 시작 순간 — 데이터 환경 자동 점검</div>
-      <div class="lead">Claude Code 확장을 열면 아무것도 안 했는데 자동 실행.</div>
+      <div class="day-label after"><span class="step-chip"><span class="step-name">hook · SessionStart</span></span> <span class="stage">시작 시점</span></div>
+      <div class="headline">대화 시작 순간 — 데이터·도구 준비 자동 점검</div>
+      <div class="lead">hook = 정해진 순간 자동 실행되는 동작. 확장을 열기만 해도 실행.</div>
 
       <div class="workflow-card">
         <ul class="wf-list">
-          <li><b>.claude/settings.json</b> → <b>SessionStart</b> 이벤트에 <b>check_data.sh</b> 등록</li>
-          <li>확장 열면 즉시 실행 → <b>.claude/hooks/trigger.log</b>에 기록 (사이드바 가시화)</li>
-          <li>데이터 + 의존성 종합 판정 — 비어있으면 ❌ 표시</li>
+          <li><b>.claude/settings.json</b>에 등록 → 결과는 기록 파일(<b>trigger.log</b>)에</li>
+          <li>❌ 데이터 없음 · ⚠️ 도구 미설치 · ✅ 준비 완료<span class="sub">'도구 미설치'는 정상(첫 보고서 때 자동 설치) · 'Python 3 없음'이면 Python부터 설치</span></li>
         </ul>
       </div>
 
       <div class="auto-context">
         <span class="ac-eyebrow">SESSION START — trigger.log 자동 기록</span>
-        [SessionStart] busan_data 17개 파일 · ✅ 보고서 환경 준비 완료<br>
+        [시각] SessionStart · busan_data 17개 파일 · ✅ 보고서 환경 준비 완료<br>
         &nbsp;&nbsp;- 부산_인구통계_강서구.xlsx<br>
         &nbsp;&nbsp;- 부산_인구통계_금정구.xlsx<br>
         &nbsp;&nbsp;... (16개 구·군 + 전체)
       </div>
 
-      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — VSCode 사이드바의 trigger.log</div>
+      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — VS Code 사이드바의 trigger.log</div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
 
   <!-- Slide 6-7: AFTER ④ hook — UserPromptSubmit (NEW) -->
-  <section class="slide" data-chapter="6" data-title="AFTER ④ hook · UserPromptSubmit">
+  <section class="slide" data-chapter="6" data-title="AFTER · hook · UserPromptSubmit">
     <div class="top-bar">
-      <span>Chapter 6 — AFTER · ④ hook · UserPromptSubmit</span>
+      <span>Chapter 6 — AFTER · hook · UserPromptSubmit</span>
       <span>8 / 11</span>
     </div>
     <div class="content-slide">
-      <div class="day-label after"><span class="step-chip"><span class="step-num">④</span> <span class="step-name">hook · UserPromptSubmit</span></span> <span class="stage">질문 시점</span></div>
-      <div class="headline">질문 직후 — 데이터 컨텍스트 자동 주입</div>
-      <div class="lead">사용자 화면엔 안 보이고 모델에만 전달되는 자동 컨텍스트.</div>
+      <div class="day-label after"><span class="step-chip"><span class="step-name">hook · UserPromptSubmit</span></span> <span class="stage">질문 시점</span></div>
+      <div class="headline">질문을 보내는 순간 — 데이터 목록 자동 첨부</div>
+      <div class="lead">내 화면엔 안 보이고 Claude에게만 전달된다.</div>
 
       <div class="workflow-card">
         <ul class="wf-list">
-          <li><b>.claude/settings.json</b> → <b>UserPromptSubmit</b> 이벤트에 <b>inject_context.sh</b> 등록</li>
-          <li>채팅 입력 직후 자동 실행 — 모델 전달 컨텍스트 + trigger.log 미러링</li>
-          <li><b>가드레일</b>: 보고서 키워드 + 데이터 없음 → Claude가 직접 안내 답변</li>
+          <li>질문할 때마다 자동 실행 → <b>trigger.log</b>에도 기록</li>
+          <li>보고서 요청인데 데이터가 없으면 → Claude가 "데이터 없음" 안내</li>
         </ul>
       </div>
 
       <div class="auto-context">
-        <span class="ac-eyebrow">USER PROMPT SUBMIT — Claude에 주입 + trigger.log 미러링</span>
+        <span class="ac-eyebrow">USER PROMPT SUBMIT — Claude에 전달되는 내용(요약)</span>
         [자동 컨텍스트 — busan_data]<br>
-        📂 사용 가능한 17개 파일 (강서구, 금정구, … 전체)<br>
+        📂 사용 가능한 17개 파일 (강서구, 금정구, … 해운대구)<br>
         ✅ 수치 인용 시 (출처: 파일명) 형식으로 자동 표기 가능
       </div>
 
-      <div class="demo-screen"><span class="icon">📺</span> 시연 — 정상 주입 + (옵션) 데이터 비운 후 가드레일</div>
+      <div class="demo-screen"><span class="icon">📺</span> 시연 — 질문 입력 + 데이터 없음 안내</div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
 
   <!-- Slide 6-8: AFTER ④ hook — PostToolUse -->
-  <section class="slide" data-chapter="6" data-title="AFTER ④ hook · PostToolUse">
+  <section class="slide" data-chapter="6" data-title="AFTER · hook · PostToolUse">
     <div class="top-bar">
-      <span>Chapter 6 — AFTER · ④ hook · PostToolUse</span>
+      <span>Chapter 6 — AFTER · hook · PostToolUse</span>
       <span>9 / 11</span>
     </div>
     <div class="content-slide">
-      <div class="day-label after"><span class="step-chip"><span class="step-num">④</span> <span class="step-name">hook · PostToolUse</span></span> <span class="stage">빌드 직후</span></div>
-      <div class="headline">PPT 빌드 직후 — 출처 표기 자동 검증</div>
-      <div class="lead">매 슬라이드 수치에 출처가 붙었는지 자동 점검 → trigger.log에 기록.</div>
+      <div class="day-label after"><span class="step-chip"><span class="step-name">hook · PostToolUse</span></span> <span class="stage">생성 직후</span></div>
+      <div class="headline">PPT를 만든 직후 — 출처 표기 자동 검사</div>
+      <div class="lead">숫자가 있는 슬라이드마다 '출처'·'자료' 표기가 있는지 확인.</div>
 
       <div class="workflow-card">
         <ul class="wf-list">
-          <li><b>.claude/settings.json</b> → <b>PostToolUse</b> · matcher: <b>Bash</b> · <b>verify_report.sh</b> 등록</li>
-          <li><code>generate_ppt.py</code> 실행 직후 자동 발동 — 다른 Bash 호출은 silent</li>
-          <li>수치 있는데 출처(자료/출처) 없는 슬라이드 감지 → trigger.log에 ✅ / ❌ 결과 기록</li>
+          <li>PPT 생성 명령 직후에만 검사·기록</li>
+          <li>결과는 <b>trigger.log</b>에 ✅ / ❌ — 기록만 하고 저장은 막지 않음</li>
         </ul>
       </div>
 
       <div class="auto-context">
         <span class="ac-eyebrow">POST TOOL USE — trigger.log 자동 기록</span>
-        ✅ 출처 표기 전 슬라이드 확인 (5/5) · 파일: 부산_16개구군_인구현황.pptx<br>
+        ✅ 모든 슬라이드 출처 표기 확인 (5/5) · 파일: 부산_16개구군_인구현황.pptx<br>
         <br>
         <span class="ac-eyebrow">출처 누락이 있을 경우</span>
-        ❌ 출처 누락: [2, 4]번 슬라이드 · 정상: [1, 3, 5]번 · 파일: 부산_인구현황.pptx
+        ❌ 출처 누락: 2·4번 슬라이드 · 정상: 1·3·5번 · 파일: 부산_16개구군_인구현황.pptx
       </div>
 
-      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — 사이드바 trigger.log에 검증 결과 누적</div>
+      <div class="demo-screen"><span class="icon">📺</span> 시연 화면 — 출처 뺀 PPT로 ❌ → 다시 만들어 ✅</div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
@@ -3933,54 +3929,54 @@ html, body {
       <span>10 / 11</span>
     </div>
     <div class="content-slide">
-      <div class="headline">4개 기능이 순서대로 켜지면 — 반복 작업이 구조가 된다</div>
-      <div class="lead">시간이 아니라 <b>절차의 자동화 지점</b>이 바뀐다.</div>
+      <div class="headline">4개 기능이 제 시점에 켜지면 — 반복 작업이 정해진 절차가 된다</div>
+      <div class="lead">사람이 하던 단계를 기능이 하나씩 맡는다.</div>
 
       <table class="ba-table">
         <thead>
           <tr>
-            <th>축</th>
+            <th>항목</th>
             <th>Before (수동)</th>
             <th class="after-col">After (Claude Code)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="task-name">엑셀 16개 순회</td>
+            <td class="task-name">엑셀 16개 처리</td>
             <td class="before-cell">직접 열고 복사</td>
-            <td class="after-cell">subagent 16개 병렬</td>
+            <td class="after-cell">subagent 16개 동시 분석</td>
           </tr>
           <tr>
             <td class="task-name">톤·출처 규칙</td>
             <td class="before-cell">매번 직접 지시</td>
-            <td class="after-cell">CLAUDE.md 자동 적용</td>
+            <td class="after-cell">CLAUDE.md에 한 번 적어 두기</td>
           </tr>
           <tr>
             <td class="task-name">보고서 형식</td>
             <td class="before-cell">기억해서 맞추기</td>
-            <td class="after-cell">rule 자동 발동</td>
+            <td class="after-cell">skill이 틀을 고정 · rule은 reports/ 파일을 직접 읽고 고칠 때 켜짐</td>
           </tr>
           <tr>
             <td class="task-name">전 과정 자동화</td>
             <td class="before-cell">없음</td>
-            <td class="after-cell">skill 한 줄 + bdi_slides 라이브러리</td>
+            <td class="after-cell">한 줄 요청(skill) + BDI 디자인 틀</td>
           </tr>
           <tr>
-            <td class="task-name">데이터 컨텍스트</td>
+            <td class="task-name">데이터 목록</td>
             <td class="before-cell">매번 직접 첨부</td>
-            <td class="after-cell">UserPromptSubmit 자동 주입</td>
+            <td class="after-cell">질문마다 hook이 자동 첨부</td>
           </tr>
           <tr>
-            <td class="task-name">품질 게이트</td>
-            <td class="before-cell">사람이 검토</td>
-            <td class="after-cell">PostToolUse 출처 검증 자동 기록</td>
+            <td class="task-name">품질 점검</td>
+            <td class="before-cell">사람이 매번 확인</td>
+            <td class="after-cell">hook이 출처 표기 자동 검사(수치 대조는 사람)</td>
           </tr>
         </tbody>
       </table>
 
       <div class="ba-note">
         ※ 한 번 설정 → 다음 달 데이터 바뀌어도 같은 한 줄로<br>
-        ※ <b>.claude/</b> 폴더를 git에 올리면 옆자리 동료도 동일 효과
+        ※ <b>작업 폴더째</b> 공유하면(개인 설정 파일 제외) 동료도 같은 효과 — 7장
       </div>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
@@ -3999,15 +3995,14 @@ html, body {
         그대로 작동합니다.
       </p>
       <p class="small">
-        다음 챕터에서는 — 그 절차를 어떻게 옆자리로 넘기는지<br>
-        사내 공유 flow를 보겠습니다.
+        다음 챕터 — 옆자리로 넘기는 방법, 사내 공유 4단계
       </p>
     </div>
     <div class="footer"><span>Ch. 6</span><span></span></div>
   </section>
 
   <!-- ============================================ -->
-  <!-- 챕터 7. 사내 공유 flow (4슬라이드 / 5분) -->
+  <!-- 챕터 7. 사내 공유 4단계 (4슬라이드 / 5분) -->
   <!-- 1단계 파일 → 2단계 plugin zip → 3단계 plugin git → 4단계 marketplace -->
   <!-- ============================================ -->
 
